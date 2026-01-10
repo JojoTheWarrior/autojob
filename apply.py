@@ -121,10 +121,6 @@ def main():
                 "type": attrs.get("type"),
                 "placeholder": attrs.get("placeholder"),
                 "href": attrs.get("href"),
-                "aria_label": attrs.get("aria-label"),
-                "aria_role": attrs.get("role"),
-                "disabled": "disabled" in attrs,
-                "required": "required" in attrs,
                 "css_path": css_path(el),
                 "label": find_label_text(el) if el.name in ["input", "textarea", "select"] else None
             }
