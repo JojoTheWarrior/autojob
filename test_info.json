@@ -1,0 +1,114 @@
+{
+  "personal_information": {
+    "legal_name": {
+      "first_name": "Zhurong",
+      "last_name": "Wang",
+      "prefix": "Mr"
+    },
+    "preferred_name": {
+      "has_preferred_name": true,
+      "first_name": "Max",
+      "last_name": "Wang"
+    },
+    "date_of_birth": "2007-03-15",
+    "sex": "Male",
+    "identity": "Man",
+    "lgbtq": false,
+    "disability": false,
+    "race": "Chinese"
+  },
+  "contact_information": {
+    "address": {
+      "street": "836 Dalewood Lane",
+      "city": "Victoria",
+      "province": "British Columbia",
+      "country": "Canada",
+      "postal_code": "V8X5G6"
+    },
+    "email": "maxwang315@gmail.com",
+    "phone": {
+      "device_type": "Mobile",
+      "country_code": "Canada(+1)",
+      "phone_number": "250-661-7096"
+    }
+  },
+  "work_experience": [
+    {
+      "job_title": "Keyboard Accompanist",
+      "company": "St Paul's United Church",
+      "location": "Sidney BC",
+      "start_date": "2023-06",
+      "end_date": "2025-08",
+      "description": "Coordinated with the church ministers during Sunday services by leading the ensemble through prepared hymns and providing appropriate background music"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "is_fluent": true,
+      "proficiency": {
+        "comprehension": "Fluent",
+        "overall": "Fluent",
+        "reading": "Fluent",
+        "speaking": "Fluent",
+        "writing": "Fluent"
+      }
+    },
+    {
+      "language": "Chinese",
+      "is_fluent": true,
+      "proficiency": {
+        "comprehension": "Fluent",
+        "overall": "Fluent",
+        "reading": "Fluent",
+        "speaking": "Fluent",
+        "writing": "Fluent"
+      }
+    }
+  ],
+  "education": [
+    {
+      "university": "University of Waterloo",
+      "faculty": "Math",
+      "major": "Computer Science",
+      "degree_type": "Bachelors",
+      "start_date": "2025-09",
+      "end_date": "2029-08",
+      "gpa": 3.9,
+      "current_year": "Year 1"
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Java",
+      "Javascript",
+      "Python",
+      "C",
+      "Racket",
+      "Rust"
+    ],
+    "web_technologies": [
+      "HTML",
+      "CSS"
+    ],
+    "data_science": [
+      "Pandas",
+      "Scikit Learn",
+      "Seaborn",
+      "Beautiful Soup"
+    ],
+    "frameworks_tools": [
+      "Turtle"
+    ],
+    "operating_systems": [
+      "MacOs",
+      "Windows",
+      "Linux"
+    ]
+  },
+  "website": "https://github.com/Maxwang315/",
+  "application_preferences": {
+    "how_did_you_hear_about_us": "LinkedIn",
+    "has_worked_for_company_before": false
+  }
+}
