@@ -7,7 +7,7 @@ load_dotenv()
 api = os.getenv("api_key")
 client = MoorchehClient(api_key=api)
     
-def get_actions(extractions_json, error=""):
+def get_actions(extractions_json, error="", attempt=""):
     print("Calling Moorcheh...")
 
     prompt = "You are going to use Selenium to help me progress through this job application. \
@@ -28,6 +28,8 @@ def get_actions(extractions_json, error=""):
     if error != "":
         prompt += "\n\nAdditionally, here's the error that this page threw last time. \
         See if you can fix it for next time:\n" + error
+    if attempt != "":
+        prompt += "\n\nAnd the instructions you tried running last time were:\n" + attempt
 
     response = client.answer.generate(
         namespace="autojob", 

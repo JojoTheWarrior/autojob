@@ -68,6 +68,7 @@ def main():
         driver.get(url)
 
         previous_failure = ""
+        previous_try = ""
         while True:
             # just opens the page
             WebDriverWait(driver, timeout=15).until(
@@ -162,7 +163,7 @@ def main():
                 if record["text"] or record["id"] or record["name"]:
                     elements.append(record)
 
-            gb = get_actions(str(elements), previous_failure)
+            gb = get_actions(str(elements), previous_failure, previous_try)
             print(gb)
 
             if gb == "DONE":
@@ -173,6 +174,7 @@ def main():
                 exec(gb)
             except Exception as e:
                 previous_failure = str(e)
+                previous_try = gb
                 print(previous_failure)
                 pass
 
