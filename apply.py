@@ -165,7 +165,7 @@ def main():
         # Wait for file input to appear and upload resume
         file_input = driver.find_element(By.CSS_SELECTOR, "input[type='file']")
         
-        
+
 
         # Select Country - Canada
         Select(driver.find_element(By.ID, "country")).select_by_visible_text("Canada")
@@ -255,17 +255,23 @@ def main():
     finally:
         driver.quit()
 
-def upload(type):
-    file_input.send_keys(os.path.abspath("/Users/aoeuhtns/Documents/deltahacks/autojob/resumes/resume.pdf"))
-        time.sleep(1.0) #edited
-        # Handle "Upload Successful" alert if it appears
-        try:
-            alert = driver.switch_to.alert
-            alert.accept()
-            time.sleep(0.5) 
-        except Exception:
-             # It's okay if no alert appears, or if we missed it (though unlikely with sleep)
-            pass
+def upload_file(input_element, type, driver):
+    if type == "resume":
+        abs_path = os.path.abspath("resumes/resume.pdf")
+        input_element.send_keys(abs_path)
+    if type == "cv":
+        abs_path = os.path.abspath("cvs/cv.pdf")
+        input_element.send_keys(abs_path)
+
+    time.sleep(1.0)
+    # Handle "Upload Successful" alert if it appears
+    try:
+        alert = driver.switch_to.alert
+        alert.accept()
+        time.sleep(0.5) 
+    except Exception:
+            # It's okay if no alert appears, or if we missed it (though unlikely with sleep)
+        pass
 
 if __name__ == "__main__":
     main()
