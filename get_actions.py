@@ -7,3 +7,5 @@ prompt = "You are going to use Selenium to help me progress through this job app
     Send your response as a single string, with newlines separating each Selenium command. \
     Make sure to add a small 0.5 second sleep between each action. \
     Here is the summary of the website:"
+
+prompt = "Extract the job description from this page, if applicable, if not, return a st"

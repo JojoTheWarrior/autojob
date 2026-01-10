@@ -127,7 +127,7 @@ def main():
             }
 
             # Drop empty noise nodes
-            if record["text"] or record["id"] or record["name"] or record["aria_label"]:
+            if record["text"] or record["id"] or record["name"]:
                 elements.append(record)
                 # Select Country - Canada (since this is RBC)
         
@@ -185,6 +185,9 @@ def main():
 
         # Phone Device Type
         device_type_select = Select(driver.find_element(By.ID, "deviceType"))
+        time.sleep(0.5)
+        device_type_select.select_by_visible_text("Mobile")
+        time.sleep(0.5)
         device_type_select.select_by_visible_text("Mobile")
         time.sleep(0.5)
 
