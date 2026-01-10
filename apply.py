@@ -5,6 +5,8 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common import *
+from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 import sys
 import threading
@@ -14,6 +16,17 @@ import json
 import os
 
 from get_actions import get_actions
+
+# initializes selenium driver
+options = Options()
+options.add_argument("--disable-gpu")
+options.add_argument("--disable-blink-features=AutomationControlled")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--start-maximized")
+options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/114.0.0.0 Safari/537.36")
 
 app = FastAPI()
 
@@ -41,6 +54,8 @@ def get_driver(options):
 
     raise Exception("No supported browser driver found.")
 
+driver = get_driver(options)
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python dump_html.py <url>")
@@ -48,122 +63,123 @@ def main():
 
     url = sys.argv[1]
 
-    options = Options()
-    options.add_argument("--disable-gpu")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--start-maximized")
-    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                        "AppleWebKit/537.36 (KHTML, like Gecko) "
-                        "Chrome/114.0.0.0 Safari/537.36")
-
-    driver = get_driver(options)
-
     try:
         print(f"Opening {url}")
         driver.get(url)
 
-        # just opens the page
-        WebDriverWait(driver, timeout=15).until(
-            lambda d: d.execute_script("return document.readyState") == "complete"
-        )
+        previous_failure = ""
+        while True:
+            # just opens the page
+            WebDriverWait(driver, timeout=15).until(
+                lambda d: d.execute_script("return document.readyState") == "complete"
+            )
 
-        # blindly sleeps for 5 seconds, just to wait for the page to load
-        time.sleep(5)
+            # blindly sleeps for 5 seconds, just to wait for the page to load
+            time.sleep(5)
 
-        html = driver.page_source
-        
-        try:
-            with open("rbc_html.txt", "w", encoding="utf-8") as f:
-                f.write(html)
-        except Exception as e:
-            print("error writing into html.txt")
-        
-        USEFUL_TAGS = [
-            "h1", "h2", "h3", "h4",
-            "p", "li", "span", "strong", "em",
-            "a", "button",
-            "input", "textarea", "select", "option", "label"
-        ]
+            html = driver.page_source
+            
+            try:
+                with open("rbc_html.txt", "w", encoding="utf-8") as f:
+                    f.write(html)
+            except Exception as e:
+                print("error writing into html.txt")
+            
+            USEFUL_TAGS = [
+                "h1", "h2", "h3", "h4",
+                "p", "li", "span", "strong", "em",
+                "a", "button",
+                "input", "textarea", "select", "option", "label"
+            ]
 
-        soup = BeautifulSoup(html, "html.parser")
+            soup = BeautifulSoup(html, "html.parser")
 
-        # css path for an element
-        def css_path(el):
-            path = []
-            while el and el.name != "[document]":
-                name = el.name
+            # css path for an element
+            def css_path(el):
+                path = []
+                while el and el.name != "[document]":
+                    name = el.name
 
-                if el.get("id"):
-                    name += f"#{el.get('id')}"
+                    if el.get("id"):
+                        name += f"#{el.get('id')}"
+                        path.insert(0, name)
+                        break
+
+                    siblings = el.find_previous_siblings(el.name)
+                    if siblings:
+                        name += f":nth-of-type({len(siblings) + 1})"
+
                     path.insert(0, name)
-                    break
+                    el = el.parent
 
-                siblings = el.find_previous_siblings(el.name)
-                if siblings:
-                    name += f":nth-of-type({len(siblings) + 1})"
+                return " > ".join(path)
 
-                path.insert(0, name)
-                el = el.parent
+            # takes text and removes leading / trailing whitespace
+            def clean_text(text):
+                if not text:
+                    return ""
+                text = re.sub(r"\s+", " ", text)
+                return text.strip()
 
-            return " > ".join(path)
+            def find_label_text(el):
+                # Case 1: <label for="inputId">
+                el_id = el.get("id")
+                if el_id:
+                    label = soup.find("label", attrs={"for": el_id})
+                    if label:
+                        return clean_text(label.get_text())
 
-        # takes text and removes leading / trailing whitespace
-        def clean_text(text):
-            if not text:
-                return ""
-            text = re.sub(r"\s+", " ", text)
-            return text.strip()
+                # Case 2: input wrapped by label
+                parent_label = el.find_parent("label")
+                if parent_label:
+                    return clean_text(parent_label.get_text())
 
-        def find_label_text(el):
-            # Case 1: <label for="inputId">
-            el_id = el.get("id")
-            if el_id:
-                label = soup.find("label", attrs={"for": el_id})
-                if label:
-                    return clean_text(label.get_text())
+                return None
 
-            # Case 2: input wrapped by label
-            parent_label = el.find_parent("label")
-            if parent_label:
-                return clean_text(parent_label.get_text())
+            # starts extracting the useful elements
+            elements = []  
 
-            return None
+            for el in soup.find_all(list(USEFUL_TAGS)):
+                text = clean_text(el.get_text())
 
-        # starts extracting the useful elements
-        elements = []  
+                attrs = el.attrs or {}
 
-        for el in soup.find_all(list(USEFUL_TAGS)):
-            text = clean_text(el.get_text())
+                record = {
+                    "tag": el.name,
+                    "text": text,
+                    "id": attrs.get("id"),
+                    "class": " ".join(attrs.get("class", [])) if isinstance(attrs.get("class"), list) else attrs.get("class"),
+                    "name": attrs.get("name"),
+                    "type": attrs.get("type"),
+                    "placeholder": attrs.get("placeholder"),
+                    "href": attrs.get("href"),
+                    "value": attrs.get("value"),
+                    "css_path": css_path(el),
+                    "label": find_label_text(el) if el.name in ["input", "textarea", "select"] else None
+                }
 
-            attrs = el.attrs or {}
+                # Drop empty noise nodes
+                if record["text"] or record["id"] or record["name"]:
+                    elements.append(record)
 
-            record = {
-                "tag": el.name,
-                "text": text,
-                "id": attrs.get("id"),
-                "class": " ".join(attrs.get("class", [])) if isinstance(attrs.get("class"), list) else attrs.get("class"),
-                "name": attrs.get("name"),
-                "type": attrs.get("type"),
-                "placeholder": attrs.get("placeholder"),
-                "href": attrs.get("href"),
-                "css_path": css_path(el),
-                "label": find_label_text(el) if el.name in ["input", "textarea", "select"] else None
-            }
+            gb = get_actions(str(elements), previous_failure)
+            print(gb)
 
-            # Drop empty noise nodes
-            if record["text"] or record["id"] or record["name"]:
-                elements.append(record)
+            if gb == "DONE":
+                break
 
-        gb = get_actions(str(elements))
-        print(gb)
-
-        # this is crazy
-        eval(gb)
+            # this is crazy
+            try:
+                exec(gb)
+            except Exception as e:
+                previous_failure = str(e)
+                print(previous_failure)
+                pass
 
         with open("rbc_extraction.json", "w", encoding="utf-8") as f:
             json.dump(elements, f, indent=2)
+
+        print("\n\n")
 
         # let user 
         time.sleep(60)
@@ -171,9 +187,11 @@ def main():
     finally:
         driver.quit()
 
-def upload_file(input_element, type, driver):
+def upload_file(input_element, type):
+    global driver
     if type == "resume":
         abs_path = os.path.abspath("resumes/resume.pdf")
+        print(abs_path)
         input_element.send_keys(abs_path)
     if type == "cv":
         abs_path = os.path.abspath("cvs/cv.pdf")
@@ -187,6 +205,7 @@ def upload_file(input_element, type, driver):
         time.sleep(0.5) 
     except Exception:
             # It's okay if no alert appears, or if we missed it (though unlikely with sleep)
+            
         pass
 
 if __name__ == "__main__":
