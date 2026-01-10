@@ -12,6 +12,8 @@ import time
 import re
 import json
 
+from get_actions import get_actions
+
 app = FastAPI()
 
 
@@ -129,96 +131,18 @@ def main():
             # Drop empty noise nodes
             if record["text"] or record["id"] or record["name"]:
                 elements.append(record)
-                # Select Country - Canada (since this is RBC)
-        
-        # instructions to run 
-        country_select = Select(driver.find_element(By.ID, "country"))
-        country_select.select_by_visible_text("Canada")
-        time.sleep(0.5)
 
-        # Select Prefix
-        prefix_select = Select(driver.find_element(By.ID, "cntryFields.nameTitle"))
-        prefix_select.select_by_visible_text("Mr.")
-        time.sleep(0.5)
+        gb = get_actions(str(elements))
+        print(gb)
 
-        # First Name
-        driver.find_element(By.ID, "cntryFields.firstName").send_keys("John")
-        time.sleep(0.5)
-
-        # Middle Name (optional)
-        driver.find_element(By.ID, "cntryFields.middleName").send_keys("")
-        time.sleep(0.5)
-
-        # Last Name
-        driver.find_element(By.ID, "cntryFields.lastName").send_keys("Doe")
-        time.sleep(0.5)
-
-        # Preferred Name dropdown
-        preferred_name_select = Select(driver.find_element(By.ID, "cntryFields.preferredName"))
-        preferred_name_select.select_by_visible_text("No")
-        time.sleep(0.5)
-
-        # Address Line 1
-        driver.find_element(By.ID, "cntryFields.addressLine1").send_keys("123 Main Street")
-        time.sleep(0.5)
-
-        # Address Line 2 (optional)
-        driver.find_element(By.ID, "cntryFields.addressLine2").send_keys("")
-        time.sleep(0.5)
-
-        # City
-        driver.find_element(By.ID, "cntryFields.city").send_keys("Toronto")
-        time.sleep(0.5)
-
-        # Province or Territory
-        region_select = Select(driver.find_element(By.ID, "cntryFields.region"))
-        region_select.select_by_visible_text("Ontario")
-        time.sleep(0.5)
-
-        # Postal Code
-        driver.find_element(By.ID, "cntryFields.postalCode").send_keys("M5V 1A1")
-        time.sleep(0.5)
-
-        # Email address
-        driver.find_element(By.ID, "email").send_keys("john.doe@email.com")
-        time.sleep(0.5)
-
-        # Phone Device Type
-        device_type_select = Select(driver.find_element(By.ID, "deviceType"))
-        time.sleep(0.5)
-        device_type_select.select_by_visible_text("Mobile")
-        time.sleep(0.5)
-        device_type_select.select_by_visible_text("Mobile")
-        time.sleep(0.5)
-
-        # Country Phone Code
-        phone_code_select = Select(driver.find_element(By.ID, "phoneWidget.countryPhoneCode"))
-        phone_code_select.select_by_visible_text("Canada (+1)")
-        time.sleep(0.5)
-
-        # Phone number
-        driver.find_element(By.ID, "phoneWidget.phoneNumber").send_keys("4165551234")
-        time.sleep(0.5)
-
-        # How did you hear about us?
-        source_select = Select(driver.find_element(By.ID, "source"))
-        source_select.select_by_visible_text("Corporate Website")
-        time.sleep(0.5)
-
-        # Have you worked for RBC?
-        worked_rbc_select = Select(driver.find_element(By.ID, "haveYouWorkedForRbc"))
-        worked_rbc_select.select_by_visible_text("No")
-        time.sleep(0.5)
-
-        # Click Next button
-        driver.find_element(By.ID, "next").click()
+        # this is crazy
+        eval(gb)
 
         with open("rbc_extraction.json", "w", encoding="utf-8") as f:
             json.dump(elements, f, indent=2)
 
         # let user 
         time.sleep(60)
-
 
     finally:
         driver.quit()
