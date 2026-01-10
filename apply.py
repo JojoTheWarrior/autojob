@@ -42,10 +42,16 @@ def main():
             lambda d: d.execute_script("return document.readyState") == "complete"
         )
 
+        # blindly sleeps for 5 seconds, just to wait for the page to load
+        time.sleep(5)
+
         html = driver.page_source
         
-        with open("voltair_html.txt", "w") as f:
-            f.write(html)
+        try:
+            with open("rbc_html.txt", "w", encoding="utf-8") as f:
+                f.write(html)
+        except Exception as e:
+            print("error writing into html.txt")
         
         USEFUL_TAGS = [
             "h1", "h2", "h3", "h4",
@@ -127,21 +133,8 @@ def main():
             if record["text"] or record["id"] or record["name"] or record["aria_label"]:
                 elements.append(record)
 
-        with open("voltair_extraction.json", "w") as f:
+        with open("rbc_extraction.json", "w", encoding="utf-8") as f:
             json.dump(elements, f, indent=2)
-
-        username_input = driver.find_element(By.ID, "ycid-input")
-        username_input.clear()
-        username_input.send_keys("your_username_or_email")
-
-        # Fill password input (id=password-input)
-        password_input = driver.find_element(By.ID, "password-input")
-        password_input.clear()
-        password_input.send_keys("your_secure_password")
-
-        # Click the login button (css selector from json)
-        login_button = driver.find_element(By.CSS_SELECTOR, "form#sign-in-card > div:nth-of-type(4) > button")
-        login_button.click()
 
         # let user 
         time.sleep(60)
