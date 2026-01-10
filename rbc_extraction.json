@@ -10162,17 +10162,5 @@
     "href": null,
     "css_path": "div#onetrust-pc-sdk > div > div:nth-of-type(3) > div > button",
     "label": null
-  },
-  {
-    "tag": "span",
-    "text": "Your Privacy [`dialog closed`]",
-    "id": null,
-    "class": "ot-scrn-rdr",
-    "name": null,
-    "type": null,
-    "placeholder": null,
-    "href": null,
-    "css_path": "div#onetrust-pc-sdk > div > span",
-    "label": null
   }
 ]

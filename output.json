@@ -1,0 +1,10 @@
+{
+  "name": "Max Wang",
+  "email": "max@example.com",
+  "skills": [
+    "Python",
+    "JavaScript",
+    "Data Analysis"
+  ],
+  "experience": 2
+}
