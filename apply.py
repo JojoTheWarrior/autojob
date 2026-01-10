@@ -23,6 +23,14 @@ def main():
 
     options = Options()
     options.add_argument("--disable-gpu")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--start-maximized")
+    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                        "AppleWebKit/537.36 (KHTML, like Gecko) "
+                        "Chrome/114.0.0.0 Safari/537.36")
+
     driver = webdriver.Chrome(options=options)
 
     try:
@@ -119,8 +127,24 @@ def main():
             if record["text"] or record["id"] or record["name"] or record["aria_label"]:
                 elements.append(record)
 
-            with open("voltair_extraction.json", "w") as f:
-                json.dump(elements, f, indent=2)
+        with open("voltair_extraction.json", "w") as f:
+            json.dump(elements, f, indent=2)
+
+        username_input = driver.find_element(By.ID, "ycid-input")
+        username_input.clear()
+        username_input.send_keys("your_username_or_email")
+
+        # Fill password input (id=password-input)
+        password_input = driver.find_element(By.ID, "password-input")
+        password_input.clear()
+        password_input.send_keys("your_secure_password")
+
+        # Click the login button (css selector from json)
+        login_button = driver.find_element(By.CSS_SELECTOR, "form#sign-in-card > div:nth-of-type(4) > button")
+        login_button.click()
+
+        # let user 
+        time.sleep(60)
 
 
     finally:
