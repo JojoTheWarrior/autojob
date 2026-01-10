@@ -16,8 +16,8 @@ For every input field that should be filled in on the current page, fill it usin
 If you don't know a piece of information, fill it with generic placeholder data
 Send your response as a single string, with newlines separating each Selenium command.
 Make sure to add a small 0.5 second sleep between each action.
-When you come across a file upload section, find the resume in the path resumes/resume.pdf
-Make sure to only output Selenium commands, don't include inputs, only code proceed through the application.
+When you come across a resume upload section, find the resume in the relative path resumes/resume.pdf
+Make sure to only output Selenium commands, don't include imports, only code proceed through the application.
 Here is the summary of the website:
 """ + json
     

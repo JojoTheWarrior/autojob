@@ -11,9 +11,33 @@ import threading
 import time
 import re
 import json
+import os
 
 app = FastAPI()
 
+def get_driver(options):
+    """Attempts to get a driver for Chrome, then Firefox, then Safari."""
+    # Try Chrome
+    try:
+        return webdriver.Chrome(options=options)
+    except Exception as e:
+        print(f"Chrome not available: {e}")
+
+    # Try Firefox
+    try:
+        options = webdriver.FirefoxOptions()
+        return webdriver.Firefox(options=options)
+    except Exception as e:
+        print(f"Firefox not available: {e}")
+
+    # Try Safari (macOS only)
+    if sys.platform == "darwin":
+        try:
+            return webdriver.Safari()
+        except Exception as e:
+            print(f"Safari not available: {e}")
+
+    raise Exception("No supported browser driver found.")
 
 def main():
     if len(sys.argv) < 2:
@@ -32,7 +56,7 @@ def main():
                         "AppleWebKit/537.36 (KHTML, like Gecko) "
                         "Chrome/114.0.0.0 Safari/537.36")
 
-    driver = webdriver.Chrome(options=options)
+    driver = get_driver(options)
 
     try:
         print(f"Opening {url}")
@@ -132,86 +156,94 @@ def main():
                 # Select Country - Canada (since this is RBC)
         
         # instructions to run 
-        country_select = Select(driver.find_element(By.ID, "country"))
-        country_select.select_by_visible_text("Canada")
+        #-------------------
+        
+        # Click the "Upload resume" button first
+        driver.find_element(By.CSS_SELECTOR, "button.upload-resume-btn").click()
         time.sleep(0.5)
 
-        # Select Prefix
-        prefix_select = Select(driver.find_element(By.ID, "cntryFields.nameTitle"))
-        prefix_select.select_by_visible_text("Mr.")
+        # Wait for file input to appear and upload resume
+        file_input = driver.find_element(By.CSS_SELECTOR, "input[type='file']")
+        
+        
+
+        # Select Country - Canada
+        Select(driver.find_element(By.ID, "country")).select_by_visible_text("Canada")
         time.sleep(0.5)
 
-        # First Name
+        # Select Prefix - Mr.
+        Select(driver.find_element(By.ID, "cntryFields.nameTitle")).select_by_visible_text("Mr.")
+        time.sleep(0.5)
+
+        # Fill First Name
         driver.find_element(By.ID, "cntryFields.firstName").send_keys("John")
         time.sleep(0.5)
 
-        # Middle Name (optional)
-        driver.find_element(By.ID, "cntryFields.middleName").send_keys("")
+        # Fill Middle Name (optional)
+        driver.find_element(By.ID, "cntryFields.middleName").send_keys("Michael")
         time.sleep(0.5)
 
-        # Last Name
-        driver.find_element(By.ID, "cntryFields.lastName").send_keys("Doe")
+        # Fill Last Name
+        driver.find_element(By.ID, "cntryFields.lastName").send_keys("Smith")
         time.sleep(0.5)
 
-        # Preferred Name dropdown
-        preferred_name_select = Select(driver.find_element(By.ID, "cntryFields.preferredName"))
-        preferred_name_select.select_by_visible_text("No")
+        # Select preferred name - No
+        Select(driver.find_element(By.ID, "cntryFields.preferredName")).select_by_visible_text("No")
         time.sleep(0.5)
 
-        # Address Line 1
+        # Fill Address Line 1
         driver.find_element(By.ID, "cntryFields.addressLine1").send_keys("123 Main Street")
         time.sleep(0.5)
 
-        # Address Line 2 (optional)
-        driver.find_element(By.ID, "cntryFields.addressLine2").send_keys("")
+        # Fill Address Line 2 (optional)
+        driver.find_element(By.ID, "cntryFields.addressLine2").send_keys("Apt 456")
         time.sleep(0.5)
 
-        # City
+        # Fill City
         driver.find_element(By.ID, "cntryFields.city").send_keys("Toronto")
         time.sleep(0.5)
 
-        # Province or Territory
-        region_select = Select(driver.find_element(By.ID, "cntryFields.region"))
-        region_select.select_by_visible_text("Ontario")
+        # Select Province - Ontario
+        Select(driver.find_element(By.ID, "cntryFields.region")).select_by_visible_text("Ontario")
         time.sleep(0.5)
 
-        # Postal Code
+        # Fill Postal Code
         driver.find_element(By.ID, "cntryFields.postalCode").send_keys("M5V 1A1")
         time.sleep(0.5)
 
-        # Email address
-        driver.find_element(By.ID, "email").send_keys("john.doe@email.com")
+        # Fill Email
+        driver.find_element(By.ID, "email").send_keys("john.smith@email.com")
         time.sleep(0.5)
 
-        # Phone Device Type
-        device_type_select = Select(driver.find_element(By.ID, "deviceType"))
-        time.sleep(0.5)
-        device_type_select.select_by_visible_text("Mobile")
-        time.sleep(0.5)
-        device_type_select.select_by_visible_text("Mobile")
+        # Select Phone Device Type - Mobile
+        Select(driver.find_element(By.ID, "deviceType")).select_by_visible_text("Mobile")
         time.sleep(0.5)
 
-        # Country Phone Code
-        phone_code_select = Select(driver.find_element(By.ID, "phoneWidget.countryPhoneCode"))
-        phone_code_select.select_by_visible_text("Canada (+1)")
+        # Select Country Phone Code - Canada (+1)
+        Select(driver.find_element(By.ID, "phoneWidget.countryPhoneCode")).select_by_visible_text("Canada (+1)")
         time.sleep(0.5)
 
-        # Phone number
+        # Fill Phone Number
         driver.find_element(By.ID, "phoneWidget.phoneNumber").send_keys("4165551234")
         time.sleep(0.5)
 
-        # How did you hear about us?
-        source_select = Select(driver.find_element(By.ID, "source"))
-        source_select.select_by_visible_text("Corporate Website")
+        # Select How did you hear about us - Job Board
+        Select(driver.find_element(By.ID, "source")).select_by_visible_text("Job Board")
         time.sleep(0.5)
 
-        # Have you worked for RBC?
-        worked_rbc_select = Select(driver.find_element(By.ID, "haveYouWorkedForRbc"))
-        worked_rbc_select.select_by_visible_text("No")
+        # Select Source - Indeed
+        Select(driver.find_element(By.ID, "applicantSource")).select_by_visible_text("Indeed")
+        time.sleep(0.5)
+
+        # Select Have you worked for RBC - No
+        Select(driver.find_element(By.ID, "haveYouWorkedForRbc")).select_by_visible_text("No")
         time.sleep(0.5)
 
         # Click Next button
         driver.find_element(By.ID, "next").click()
+        time.sleep(0.5)
+
+        #--------------
 
         with open("rbc_extraction.json", "w", encoding="utf-8") as f:
             json.dump(elements, f, indent=2)
@@ -222,6 +254,18 @@ def main():
 
     finally:
         driver.quit()
+
+def upload(type):
+    file_input.send_keys(os.path.abspath("/Users/aoeuhtns/Documents/deltahacks/autojob/resumes/resume.pdf"))
+        time.sleep(1.0) #edited
+        # Handle "Upload Successful" alert if it appears
+        try:
+            alert = driver.switch_to.alert
+            alert.accept()
+            time.sleep(0.5) 
+        except Exception:
+             # It's okay if no alert appears, or if we missed it (though unlikely with sleep)
+            pass
 
 if __name__ == "__main__":
     main()
