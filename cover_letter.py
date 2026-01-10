@@ -44,10 +44,6 @@ def pick_three_diverse(texts: List[str]) -> List[str]:
             overlap = max(jaccard(c, t) for c in chosen)
             if overlap < 0.55:
                 chosen.append(t)
- else:
-            overlap = max(jaccard(c, t) for c in chosen)
-            if overlap < 0.55:
-                chosen.append(t)
         if len(chosen) == 3:
             break
     return chosen if len(chosen) == 3 else texts[:3]
@@ -78,7 +74,7 @@ Job description:
         t = h.get("text") or (h.get("document") or {}).get("text")
         if t:
             texts.append(t)
-   return pick_three_diverse(texts)
+    return pick_three_diverse(texts)
 
 def generate_glaze_line(user_namespace: str, job_title: str, company: str, job_desc: str) -> str:
     api_key = os.environ["MOORCHEH_API_KEY"]
