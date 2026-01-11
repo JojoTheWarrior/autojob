@@ -145,19 +145,38 @@ body {
 /* =========================
    Split Terminals (50/50)
    ========================= */
-.split-terminals {
+
+/* Main layout - side by side */
+.main-layout {
   position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.app.started .split-terminals {
+.app.started .main-layout {
   opacity: 1;
   transform: translateY(0);
+}
+
+.split-terminals {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Neural Panel on the right */
+.neural-panel {
+  width: 400px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid rgba(127, 216, 255, 0.2);
+  background: linear-gradient(180deg, #050a12 0%, #0a0f1a 100%);
 }
 
 /* Terminal Container - EXACTLY 50% each */

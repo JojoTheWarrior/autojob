@@ -27,7 +27,9 @@ def sanitize(text: str) -> str:
 # alternate between wanting and executing
 
 def want_actions(screenshot, past_wants=[]):
-    print(f"Calling for want")
+    print(f"[CRITIC] Starting want_actions...")
+    print(f"[CRITIC] Screenshot: {screenshot}")
+    print(f"[CRITIC] Past wants count: {len(past_wants)}")
 
     image_b64 = encode_image(screenshot)
 
@@ -76,6 +78,9 @@ def want_actions(screenshot, past_wants=[]):
     if random.randint(1, 10) == 10:
         prompt += "If you look at your past actions and realize that you've been trying the same thing for a while, try scrolling down."
 
+    print(f"[CRITIC] Sending request to GPT-4.1-mini...")
+    print(f"[CRITIC] Prompt length: {len(prompt)} chars")
+    
     response = client.responses.create(
         model="gpt-4.1-mini",
         input=[{
@@ -90,16 +95,21 @@ def want_actions(screenshot, past_wants=[]):
         }]
     )
 
-    print("Want response generated")
+    output = response.output_text
+    print(f"[CRITIC] Response received - length: {len(output)} chars")
+    print(f"[CRITIC] Response content: {output[:200]}..." if len(output) > 200 else f"[CRITIC] Response content: {output}")
 
-    return response.output_text
+    return output
 
 
     
 # takes a screenshot path
 def execute_actions(html_body, past_command=""):
-    print(f"Calling Moorcheh...")
+    print(f"[ACTOR] Starting execute_actions...")
+    print(f"[ACTOR] Past command: '{past_command}'")
+    print(f"[ACTOR] HTML body length: {len(html_body)} chars")
     html_body = sanitize(html_body)
+    print(f"[ACTOR] Sanitized HTML length: {len(html_body)} chars")
 
     prompt = f"You are the actor, a clever agent that is best at writing Selenium code to progress through job application websites. \
     Take a deep breath and think about this problem step by step. \
@@ -119,9 +129,21 @@ def execute_actions(html_body, past_command=""):
 
     prompt += "This is the profile of the applicant. Be sure to be constantly refer back to the profile while filling the form. If there is any missing information, fill it with a generic educated guess." + profile
 
+    prompt += "At the very beginning of your output, start it with a single line of an English word or phrase, followed by a newline character, corresponding to \
+    relevant answer being used to accomplish your task. For example, if the task was related to filling in the school, the phrase could be University of Waterloo. \
+    The second line and onwards should be runnable Selenium code."
+
+    print(f"[ACTOR] Sending request to Moorcheh (Claude Opus)...")
+    print(f"[ACTOR] Prompt length: {len(prompt)} chars")
+    
     response = moor_client.answer.generate(
         namespace="autojob", 
         query=prompt,
         ai_model="anthropic.claude-opus-4-5-20251101-v1:0"
     )
-    return response["answer"]
+    
+    answer = response["answer"]
+    print(f"[ACTOR] Response received - length: {len(answer)} chars")
+    print(f"[ACTOR] Response preview: {answer[:300]}..." if len(answer) > 300 else f"[ACTOR] Response: {answer}")
+    
+    return answer

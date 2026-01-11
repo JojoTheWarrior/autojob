@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
+import NeuralGraph from "./NeuralGraph";
 
 /**
  * GLOBAL BUFFERS (persist outside React renders)
@@ -24,6 +25,10 @@ export default function App() {
   // Track if currently typing for visual caret
   const [isActorTyping, setIsActorTyping] = useState(false);
   const [isCriticTyping, setIsCriticTyping] = useState(false);
+
+  // Track line counts for neural graph
+  const [actorLineCount, setActorLineCount] = useState(0);
+  const [criticLineCount, setCriticLineCount] = useState(0);
 
   const actorQueue = useRef([]);
   const criticQueue = useRef([]);
@@ -77,6 +82,7 @@ export default function App() {
         if (actorData.length > actor_lines.length) {
           const newItems = actorData.slice(actor_lines.length);
           actor_lines = actorData;
+          setActorLineCount(actorData.length);
 
           newItems.forEach(([ts, text]) => {
             actorQueue.current.push({ ts, text });
@@ -87,6 +93,7 @@ export default function App() {
         if (criticData.length > critic_lines.length) {
           const newItems = criticData.slice(critic_lines.length);
           critic_lines = criticData;
+          setCriticLineCount(criticData.length);
 
           newItems.forEach((line) => {
             criticQueue.current.push(line);
@@ -231,52 +238,64 @@ export default function App() {
         {!started && <span className="caret" />}
       </div>
 
-      {/* Split Terminals */}
-      <div className="split-terminals">
-        {/* ACTOR */}
-        <div className="terminal actor">
-          <div className="terminal-header">
-            ACTOR
-            <span className="status-indicator">
-              <span className="status-dot" />
-              {isActorTyping ? "PROCESSING" : "READY"}
-            </span>
+      {/* Main Layout: Terminals + Graph */}
+      <div className="main-layout">
+        {/* Split Terminals */}
+        <div className="split-terminals">
+          {/* ACTOR */}
+          <div className="terminal actor">
+            <div className="terminal-header">
+              CRITIC
+              <span className="status-indicator">
+                <span className="status-dot" />
+                {isActorTyping ? "PROCESSING" : "READY"}
+              </span>
+            </div>
+            <div className="terminal-body">
+              {actorDisplay.map((line, idx) => (
+                <div key={idx} className="line">
+                  {line.ts && (
+                    <span className="timestamp">[{line.ts}]</span>
+                  )}
+                  <span>{line.text}</span>
+                </div>
+              ))}
+              {isActorTyping && <span className="typing-caret" />}
+              <div ref={actorEndRef} />
+            </div>
           </div>
-          <div className="terminal-body">
-            {actorDisplay.map((line, idx) => (
-              <div key={idx} className="line">
-                {line.ts && (
-                  <span className="timestamp">[{line.ts}]</span>
-                )}
-                <span>{line.text}</span>
-              </div>
-            ))}
-            {isActorTyping && <span className="typing-caret" />}
-            <div ref={actorEndRef} />
+
+          {/* Animated Divider */}
+          <div className="terminal-divider" />
+
+          {/* CRITIC */}
+          <div className="terminal critic">
+            <div className="terminal-header">
+              ACTOR
+              <span className="status-indicator">
+                <span className="status-dot" />
+                {isCriticTyping ? "ANALYZING" : "STANDBY"}
+              </span>
+            </div>
+            <div className="terminal-body">
+              {criticDisplay.map((line, idx) => (
+                <div key={idx} className="line">
+                  {line.text}
+                </div>
+              ))}
+              {isCriticTyping && <span className="typing-caret" />}
+              <div ref={criticEndRef} />
+            </div>
           </div>
         </div>
 
-        {/* Animated Divider */}
-        <div className="terminal-divider" />
-
-        {/* CRITIC */}
-        <div className="terminal critic">
-          <div className="terminal-header">
-            CRITIC
-            <span className="status-indicator">
-              <span className="status-dot" />
-              {isCriticTyping ? "ANALYZING" : "STANDBY"}
-            </span>
-          </div>
-          <div className="terminal-body">
-            {criticDisplay.map((line, idx) => (
-              <div key={idx} className="line">
-                {line.text}
-              </div>
-            ))}
-            {isCriticTyping && <span className="typing-caret" />}
-            <div ref={criticEndRef} />
-          </div>
+        {/* Neural Graph Panel */}
+        <div className="neural-panel">
+          <NeuralGraph
+            actorLines={actorLineCount}
+            criticLines={criticLineCount}
+            isSearching={isActorTyping || isCriticTyping}
+          />
         </div>
       </div>
     </div>

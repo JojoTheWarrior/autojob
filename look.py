@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from pydantic import BaseModel
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -15,6 +15,7 @@ import time
 import re
 import json
 import os
+import asyncio
 from datetime import datetime, timezone
 
 from look_actions import want_actions, execute_actions
@@ -31,6 +32,55 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
 )
+
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: list[WebSocket] = []
+
+    async def connect(self, websocket: WebSocket):
+        await websocket.accept()
+        self.active_connections.append(websocket)
+
+    def disconnect(self, websocket: WebSocket):
+        if websocket in self.active_connections:
+            self.active_connections.remove(websocket)
+
+    async def broadcast(self, message: str):
+        for connection in self.active_connections:
+            try:
+                await connection.send_text(message)
+            except Exception as e:
+                print(f"Failed to send to websocket: {e}")
+
+    def broadcast_sync(self, message: str):
+        """Synchronous broadcast for use in threads - creates a new event loop"""
+        for connection in self.active_connections:
+            try:
+                asyncio.run(connection.send_text(message))
+            except RuntimeError:
+                # If there's already an event loop running, use it
+                try:
+                    loop = asyncio.get_event_loop()
+                    loop.create_task(connection.send_text(message))
+                except Exception as e:
+                    print(f"Broadcast error: {e}")
+            except Exception as e:
+                print(f"Failed to send to websocket: {e}")
+
+manager = ConnectionManager()
+
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await manager.connect(websocket)
+    try:
+        while True:
+            # If you don't care about messages from client, you can still
+            # keep the loop alive by reading:
+            data = await websocket.receive_text()
+            # Optional: echo or handle incoming data
+            await websocket.send_text(f"You said: {data}")
+    except WebSocketDisconnect:
+        manager.disconnect(websocket)
 
 class ApplyRequest(BaseModel):
     url: str
@@ -52,6 +102,7 @@ options.add_experimental_option("useAutomationExtension", False)
 driver = ""
 actor_bullshit = []
 critic_bullshit = []
+actor_word = "Initializing..."
 
 def get_driver(options):
     """Attempts to get a driver for Chrome, then Firefox, then Safari."""
@@ -158,6 +209,13 @@ def upload_file(input_element, type):
             
         pass
 
+@app.get("/similar")
+async def get_similar():
+    """Returns the current actor_word for the neural graph."""
+    global actor_word
+    await manager.broadcast(actor_word)
+    return {"status": "sent"}
+
 @app.get("/get_actor")
 def get_actor():
     global actor_bullshit
@@ -186,6 +244,7 @@ def startApp(url):
     global driver
     global actor_bullshit
     global critic_bullshit
+    global actor_word
     driver = get_driver(options)
 
     run_number = 0
@@ -213,25 +272,44 @@ def startApp(url):
         past_wants = deque()
 
         while frame_number < 100:
+            print(f"\n{'='*60}")
+            print(f"[DEBUG] === FRAME {frame_number} ===")
+            print(f"{'='*60}")
+            
             screenshot_path = f"./screenshots/run_{pad_numbers(run_number)}/current_{pad_numbers(frame_number)}.png"
+            print(f"[DEBUG] Saving screenshot to: {screenshot_path}")
             driver.save_screenshot(screenshot_path)
+            
+            print(f"[DEBUG] Calling want_actions (Critic)...")
+            print(f"[DEBUG] Past wants: {list(past_wants)}")
             gb = want_actions(screenshot_path, past_wants)
 
-            print(gb)
+            print(f"[DEBUG] Critic raw response:\n---\n{gb}\n---")
             html = driver.page_source
+            print(f"[DEBUG] Page source length: {len(html)} chars")
 
             if gb == "Done":
+                print(f"[DEBUG] Critic returned 'Done' - application complete!")
                 break
             elif gb == "Scroll":
+                print(f"[DEBUG] Critic returned 'Scroll' - scrolling page...")
                 driver.execute_script("window.scrollBy(0, 1000);")
             else:
-                print("Here at splitter")
+                print(f"[DEBUG] Critic returned action - parsing...")
                 gb = gb.split("\n")
                 gb[:] = [item for item in gb if item != '']
-                print(gb)
+                print(f"[DEBUG] Parsed lines ({len(gb)} total): {gb}")
+                
+                if len(gb) < 2:
+                    print(f"[WARN] Expected 2 lines (action + keyword), got {len(gb)}. Raw: {gb}")
+                    frame_number += 1
+                    continue
 
                 past_commands = gb[0]
                 keywords = gb[1]
+                
+                print(f"[DEBUG] Action requested: '{past_commands}'")
+                print(f"[DEBUG] Keyword to search: '{keywords}'")
 
                 actor_bullshit.append((datetime.now(timezone.utc).isoformat(), past_commands))
 
@@ -240,25 +318,53 @@ def startApp(url):
                     past_wants.popleft()
 
                 soup = BeautifulSoup(html, "html.parser")
+                print(f"[DEBUG] Pruning HTML tree by keyword: '{keywords}'")
                 pruned_soup = prune_tree_by_keyword(soup, keywords)
 
                 if keywords.lower().strip() == "cookies":
+                    print(f"[DEBUG] Cookie mode - using full soup")
                     pruned_soup = soup
                 
+                pruned_html = str(pruned_soup)
+                print(f"[DEBUG] Pruned HTML length: {len(pruned_html)} chars")
+                
                 with open(f"./screenshots/run_{pad_numbers(run_number)}/current_{pad_numbers(frame_number)}_soup.txt", "w", encoding="utf-8") as f:
-                    f.write(str(pruned_soup))
+                    f.write(pruned_html)
 
-                cmds = strip_code_fences(execute_actions(str(pruned_soup), past_commands))
+                print(f"[DEBUG] Calling execute_actions (Actor)...")
+                actor_response = strip_code_fences(execute_actions(pruned_html, past_commands))
+                print(f"[DEBUG] Actor raw response:\n---\n{actor_response}\n---")
+                
+                actor_response = actor_response.split("\n")
+                if len(actor_response) < 2:
+                    print(f"[WARN] Actor response has < 2 lines. Skipping execution.")
+                    frame_number += 1
+                    continue
+                    
+                actor_word, cmds = actor_response[0], "\n".join(actor_response[1:])
+                print(f"[DEBUG] Actor word: '{actor_word}'")
+                print(f"[DEBUG] Generated Selenium commands ({len(cmds)} chars):")
+                for i, line in enumerate(cmds.split("\n")):
+                    print(f"  [{i}] {line}")
 
-                print(cmds)
+                # Broadcast the actor_word to all connected WebSocket clients
+                try:
+                    manager.broadcast_sync(json.dumps({"type": "actor_word", "word": actor_word}))
+                    print(f"[DEBUG] WebSocket broadcast sent: {actor_word}")
+                except Exception as e:
+                    print(f"[ERROR] WebSocket broadcast failed: {e}")
 
                 for cmd in cmds.split("\n"):
                     critic_bullshit.append(cmd)
 
+                print(f"[DEBUG] Executing Selenium commands...")
                 try:
                     exec(cmds)
+                    print(f"[DEBUG] Execution completed successfully")
                 except Exception as e:
-                    print("smth went wrong in execution")
+                    print(f"[ERROR] Execution failed: {type(e).__name__}: {e}")
+                    import traceback
+                    traceback.print_exc()
 
             frame_number += 1
         
