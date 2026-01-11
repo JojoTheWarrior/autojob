@@ -16,7 +16,7 @@ import json
 import os
 
 from get_actions import get_actions
-from extraction import extract_info
+from extraction import extract_info, safe_click
 
 # initializes selenium driver
 options = Options()
@@ -73,14 +73,13 @@ def main():
 
         previous_failure = ""
         previous_try = ""
+        previous_attempt_count = 0
+
         while True:
             # just opens the page
             WebDriverWait(driver, timeout=15).until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
             )
-
-            # blindly sleeps for 5 seconds, just to wait for the page to load
-            time.sleep(5)
 
             html = driver.page_source
             
@@ -96,7 +95,7 @@ def main():
             with open("rbc_extraction.json", "w", encoding="utf-8") as f:
                 json.dump(info, f, indent=2)
             
-            gb = get_actions(str(info), previous_failure, previous_try)
+            gb = get_actions(str(info), previous_failure, previous_try, previous_attempt_count)
             print(gb)
 
             if gb == "DONE":
@@ -105,9 +104,11 @@ def main():
             # this is crazy
             try:
                 exec(gb)
+                previous_attempt_count = 0
             except Exception as e:
                 previous_failure = str(e)
                 previous_try = gb
+                previous_attempt_count += 1
                 print(previous_failure)
                 pass
 
