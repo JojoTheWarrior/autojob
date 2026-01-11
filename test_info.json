@@ -2,20 +2,15 @@
   "personal_information": {
     "legal_name": {
       "first_name": "Zhurong",
+      "middle_name": "",
       "last_name": "Wang",
       "prefix": "Mr"
     },
     "preferred_name": {
-      "has_preferred_name": true,
       "first_name": "Max",
       "last_name": "Wang"
     },
-    "date_of_birth": "2007-03-15",
-    "sex": "Male",
-    "identity": "Man",
-    "lgbtq": false,
-    "disability": false,
-    "race": "Chinese"
+    "date_of_birth": "2007-03-15"
   },
   "contact_information": {
     "address": {
@@ -23,15 +18,28 @@
       "city": "Victoria",
       "province": "British Columbia",
       "country": "Canada",
-      "postal_code": "V8X5G6"
+      "postal_code": "V8X 5G6"
     },
     "email": "maxwang315@gmail.com",
     "phone": {
       "device_type": "Mobile",
-      "country_code": "Canada(+1)",
+      "country_code": "Canada (+1)",
       "phone_number": "250-661-7096"
     }
   },
+  "residence_status": {
+    "citizenships": "Canada",
+    "visa_status": "",
+    "sponsorship": ""
+  },
+  "diversity": {
+    "sex": "Male",
+    "identity": "Man",
+    "lgbtq": "",
+    "disability": "",
+    "race": "Chinese"
+  },
+
   "work_experience": [
     {
       "job_title": "Keyboard Accompanist",
@@ -42,13 +50,13 @@
       "description": "Coordinated with the church ministers during Sunday services by leading the ensemble through prepared hymns and providing appropriate background music"
     }
   ],
+
   "languages": [
     {
       "language": "English",
       "is_fluent": true,
       "proficiency": {
         "comprehension": "Fluent",
-        "overall": "Fluent",
         "reading": "Fluent",
         "speaking": "Fluent",
         "writing": "Fluent"
@@ -59,13 +67,13 @@
       "is_fluent": true,
       "proficiency": {
         "comprehension": "Fluent",
-        "overall": "Fluent",
         "reading": "Fluent",
         "speaking": "Fluent",
         "writing": "Fluent"
       }
     }
   ],
+
   "education": [
     {
       "university": "University of Waterloo",
@@ -78,6 +86,7 @@
       "current_year": "Year 1"
     }
   ],
+
   "skills": {
     "programming_languages": [
       "Java",
@@ -106,9 +115,15 @@
       "Linux"
     ]
   },
-  "website": "https://github.com/Maxwang315/",
+
+  "socials": {
+    "website": "https://github.com/Maxwang315/",
+    "linkedin": "",
+    "github": ""
+  },
+
   "application_preferences": {
     "how_did_you_hear_about_us": "LinkedIn",
-    "has_worked_for_company_before": false
+    "has_worked_for_company_before": ""
   }
 }
