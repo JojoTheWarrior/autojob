@@ -17,6 +17,8 @@ def get_actions(extractions_json, error="", attempt=""):
     Any input fields that are already full do not have to be filled again. If you want to refill them, make sure you write over the previous value of that input box \
     If you don't know a piece of information, fill it with generic placeholder data \
     If you need to upload a resume or CV, call the function upload_file(selenium element of the <input> (important: not the button, rather the thing that looks like input[type='file']), \"resume\" or \"cv\" (so a string attribute)) \
+    If the resume or CV has already been uploaded, then don't try to upload it again \
+    If there was a previous error and it was something about \"element not clickable\" at a coordinate, the fix is usually not to reposition the screen but rather to perhaps not interact with that element or interact with it differently \
     Send your response as a single string, with newlines separating each Selenium command. \
     Make sure to add a small 0.5 second sleep between each action.\
     If you deem that the application is complete and that the window can be closed, just return the string \"DONE\" \
