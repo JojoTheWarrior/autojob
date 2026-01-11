@@ -1,0 +1,510 @@
+<html class="html5" lang="en-US" style="--lead-brand-color: #dc0019; --lead-brand-color-secondary: #9198a1; --lead-brand-opposite-color: #fff; --lead-brand-opposite-color-secondary: #fff; --lead-black-color: #272727; --lead-error-color: #d55353; --lead-brand-border-radius: 15px; --lead-cta-primary-color: #dc0019; --lead-cta-opposite-color: #fff;" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style> 
+      /* Accordian 2.0*/   
+     }
+       @-webkit-keyframes bugfix {
+         from {
+           padding: 0;
+        }
+         to {
+           padding: 0;
+        }
+}
+       .wrap {
+         display: block;
+         max-width: 1024px;
+         margin: 0 auto 2em;
+         padding: 0 1em;
+         width: 100%;
+      }
+       @media (min-width: 0em) {
+         .wrap {
+           padding: 3em;
+      }
+       a, a:visited {
+         color: #000;
+         text-decoration: none;
+      }
+       .question-section {
+         background: #ffffff;
+         box-shadow: 0 2px 5px rgba(68, 68, 68, 0.4);
+         display: inline-block;
+         font-size: 1rem;
+         margin-bottom: 1em;
+         padding: 1em;
+         position: relative;
+         vertical-align: top;
+         width: 100%;
+      }
+       .question-section h1 {
+         font-family: 'Custom: NeuePlakUA (tff)', sans-serif;
+         color: #000;
+         font-size: 1em;
+         font-size: 2vw;
+         font-weight: 500;
+         margin-bottom: 0.25em;
+      }
+       .question-section > p, .question-section > h1 {
+         text-align: center;
+      }
+       .question-section > p {
+         font-size: 2em;
+         font-size: 1vw;
+         margin-bottom: 1em;
+      }
+       div[class^="cat"] {
+         width: 100%;
+      }
+       div[class^="cat"] > label {
+         background: #000;
+         color: #fff;
+         cursor: pointer;
+         display: block;
+         font-weight: regular;
+         line-height: 1.4;
+         margin-bottom: 0.5em;
+         padding: 0.75em 0.5em;
+         transition: all 0.55s;
+      }
+       div[class^="cat"] > label:hover {
+         background: #000;
+      }
+       div[class^="cat"] > input {
+         position: absolute;
+         z-index: -999;
+      }
+       div[class^="cat"] > input:focus + label {
+         background: #E7182C;
+         letter-spacing: 1px;
+      }
+       div[class^="cat"] .question-wrap {
+         height: 100%;
+         max-height: 0;
+         opacity: 0;
+         overflow: hidden;
+         transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+         width: 100%;
+      }
+       div[class^="cat"] > input:checked ~ .question-wrap {
+         max-height: 1000px;
+         opacity: 1;
+         transition: all 1.95s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+       .question-wrap .question {
+         margin: 1em 0;
+      }
+       .question-wrap label {
+         color: #000;
+         cursor: pointer;
+         display: block;
+         font-weight: bold;
+         margin-bottom: 0.5em;
+      }
+       .question-wrap input {
+         position: absolute;
+         z-index: -999;
+         top: -10000px;
+      }
+       .question-wrap input:focus + label {
+         color: #000;
+      }
+       .question-wrap input:not(:checked) ~ p {
+         height: 100%;
+         max-height: 0;
+         opacity: 0;
+         overflow: hidden;
+         transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+       .question-wrap input:checked ~ p {
+         max-height: 500px;
+         opacity: 1;
+         transition: all 1.95s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+</style>
+
+
+<style id="fixedHeaderInlineStyle" type="text/css">@media only screen and (min-width: 767px) { body { padding-top: 68.6px;} }</style><style type="text/css"> @font-face { font-family: apply-element-icons; font-weight: 400; font-display: auto; font-style: normal; src: url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/element-icons.313f7da.woff) format("woff"), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/element-icons.4520188.ttf) format("truetype"); } @font-face { font-family: apply-icomoon; font-weight: normal; font-style: normal; font-display: block; src: url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/icomoon.18a00e9.eot); src: url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/icomoon.18a00e9.eot?#iefix) format('embedded-opentype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/icomoon.6a9883e.ttf) format('truetype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/icomoon.17ada1b.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/img/icomoon.0c32177.svg) format('svg'); } @font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 400; src: url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-regular.b9e5672.eot); src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-regular.b9e5672.eot?#iefix) format('embedded-opentype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-regular.f57a62e.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-regular.347639e.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-regular.cf6a345.ttf) format('truetype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/img/open-sans-v17-latin-regular.1d0d8b6.svg#OpenSans) format('svg'); } @font-face { font-family: 'Open Sans'; font-style: italic; font-weight: 400; src: url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-italic.3afe546.eot); src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-italic.3afe546.eot?#iefix) format('embedded-opentype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-italic.bb91531.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-italic.56bdf84.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-italic.5b8c0a0.ttf) format('truetype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/img/open-sans-v17-latin-italic.a80aff3.svg#OpenSans) format('svg'); } @font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 600; src: url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-600.bbccb82.eot); src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-600.bbccb82.eot?#iefix) format('embedded-opentype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-600.9526470.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-600.7e06644.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-600.3f76b06.ttf) format('truetype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/img/open-sans-v17-latin-600.099f405.svg#OpenSans) format('svg'); } @font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 700; src: url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-700.78e1d7f.eot); src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-700.78e1d7f.eot?#iefix) format('embedded-opentype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-700.92425c6.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-700.f24f4bc.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/open-sans-v17-latin-700.eea87f9.ttf) format('truetype'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/img/open-sans-v17-latin-700.926388f.svg#OpenSans) format('svg'); } @font-face { font-family: 'Source Sans'; font-weight: normal; font-style: normal; src: url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/source-sans-pro-v11-latin-regular.96b1588.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/source-sans-pro-v11-latin-regular.74ddb2b.woff) format('woff'); } @font-face { font-family: 'Spotify Circular'; font-style: normal; font-weight: 300; src: local('Spotify Circular Light'), local('Spotify-Circular-Light'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Light.ed5ae8d.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Light.4bfb8d4.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Light.ef865be.ttf) format('truetype'); } @font-face { font-family: 'Spotify Circular'; font-style: italic; font-weight: 300; src: local('Spotify Circular Light Italic'), local('Spotify-Circular-Light-Italic'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Light-Italic.105fa08.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Light-Italic.a604e35.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Light-Italic.9b3b7fb.ttf) format('truetype'); } @font-face { font-family: 'Spotify Circular'; font-style: normal; font-weight: 400; src: local('Spotify Circular Book'), local('Spotify-Circular-Book'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Book.29062d3.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Book.7ce59fb.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Book.11ae635.ttf) format('truetype'); } @font-face { font-family: 'Spotify Circular'; font-style: italic; font-weight: 400; src: local('Spotify Circular Book Italic'), local('Spotify-Circular-Book-Italic'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Book-Italic.5e6b435.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Book-Italic.4f760ff.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Book-Italic.0ccb666.ttf) format('truetype'); } @font-face { font-family: 'Spotify Circular'; font-style: normal; font-weight: 700; src: local('Spotify Circular Bold'), local('Spotify-Circular-Bold'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Bold.81d16b5.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Bold.0885eed.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Bold.fc97a08.ttf) format('truetype'); } @font-face { font-family: 'Spotify Circular'; font-style: italic; font-weight: 700; src: local('Spotify Circular Bold Italic'), local('Spotify-Circular-Bold-Italic'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Bold-Italic.ac426ce.woff2) format('woff2'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Bold-Italic.5999f3a.woff) format('woff'), url(https://dokumfe7mps0i.cloudfront.net/static/widget/fonts/Spotify-Circular-Bold-Italic.7dd6271.ttf) format('truetype'); } .el-popup-parent--hidden{touch-action: none;-webkit-overflow-scrolling: none;overflow: hidden;overscroll-behavior: none;}</style></head>
+<body class="coreCSB job-page body body" id="body">
+
+<div class="outershell" id="outershell">
+<div class="custom-header header headermain navbar navbar-default navbar-fixed-top" id="header" role="banner">
+<script type="text/javascript">
+            //<![CDATA[
+            $(function()
+            {
+                /* Using 'skipLinkSafari' to include CSS styles specific to Safari. */
+                if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+                    $("#skipLink").attr('class', 'skipLinkSafari');
+                }
+            });
+            //]]>
+             $(document).ready(function() {
+                $("#skipLink").click(function (e) {
+                    e.preventDefault();
+                    $("#content").focus().css('outline','none');
+                    var offset = $(':target').offset();
+                    var fixedHeaderHeight = $("#header").innerHeight();
+                    var scrollto = offset.top - fixedHeaderHeight;
+                    $('html, body').animate({scrollTop:scrollto}, 0);
+                });
+              });
+
+        </script>
+
+<div class="custom-mobile-header displayM center unmodified backgroundimage">
+<div class="custom-header-content custom-header-row-0">
+<div class="row">
+
+<div class="custom-header-row-content custom-header-column-1 col-xs-8 content-align-right content-align-top backgroundcolorb9a00efb6f5c6e8a56a91390486728b2" style="padding:0px 0px 0px 0px; height:40px;">
+<div class="custom-header-signinLanguage backgroundcolorb9a00efb6f5c6e8a56a91390486728b2" style="padding: 10px;">
+<div class="inner limitwidth">
+<div class="links" role="list">
+<div class="language node dropdown header-one headerlocaleselector linkhovercolor1d2db517925e4e3f55f919a8953fea84 customheaderlinkhovercolor1d2db517925e4e3f55f919a8953fea84" role="listitem">
+
+<ul class="dropdown-menu company-dropdown headerdropdown backgroundcolorb6a533a1" onclick=" event.stopPropagation();" role="menu">
+
+
+
+<li class="linkcolorb9a00efb6f5c6e8a56a91390486728b2 linkhovercolor1d2db517925e4e3f55f919a8953fea84 customheaderlinkhovercolor1d2db517925e4e3f55f919a8953fea84" role="none">
+<a href="https://careers.underarmour.com?locale=es_MX" lang="es-MX" role="menuitem">Español (México)</a>
+</li>
+
+
+
+
+
+</ul>
+</div>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+<div class="custom-tablet-header displayT center unmodified backgroundimage">
+<div class="custom-header-content custom-header-row-0">
+<div class="row">
+
+<div class="custom-header-row-content custom-header-column-1 col-xs-8 content-align-right content-align-top backgroundcolorb9a00efb6f5c6e8a56a91390486728b2" style="padding:0px 0px 0px 0px; height:40px;">
+<div class="custom-header-signinLanguage backgroundcolorb9a00efb6f5c6e8a56a91390486728b2" style="padding: 10px;">
+<div class="inner limitwidth">
+<div class="links" role="list">
+<div class="language node dropdown header-one headerlocaleselector linkhovercolor1d2db517925e4e3f55f919a8953fea84 customheaderlinkhovercolor1d2db517925e4e3f55f919a8953fea84" role="listitem">
+
+<ul class="dropdown-menu company-dropdown headerdropdown backgroundcolorb6a533a1" onclick=" event.stopPropagation();" role="menu">
+
+
+
+<li class="linkcolorb9a00efb6f5c6e8a56a91390486728b2 linkhovercolor1d2db517925e4e3f55f919a8953fea84 customheaderlinkhovercolor1d2db517925e4e3f55f919a8953fea84" role="none">
+<a href="https://careers.underarmour.com?locale=es_MX" lang="es-MX" role="menuitem">Español (México)</a>
+</li>
+
+
+
+
+
+</ul>
+</div>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+<div aria-label="Header" class="custom-desktop-header displayD center unmodified backgroundimage" role="navigation">
+<div class="custom-header-content custom-header-row-0">
+<div class="row">
+
+
+<div class="custom-header-row-content custom-header-column-2 col-xs-3 content-align-right content-align-top backgroundcolorb9a00efb6f5c6e8a56a91390486728b2" style="padding:0px 0px 5px 0px; height:35px;">
+<div class="custom-header-signinLanguage backgroundcolorb9a00efb6f5c6e8a56a91390486728b2" style="padding: 10px;">
+<div class="inner limitwidth">
+<div class="links" role="list">
+<div class="language node dropdown header-one headerlocaleselector linkhovercolor1d2db517925e4e3f55f919a8953fea84 customheaderlinkhovercolor1d2db517925e4e3f55f919a8953fea84" role="listitem">
+
+<ul class="dropdown-menu company-dropdown headerdropdown backgroundcolorb6a533a1" onclick=" event.stopPropagation();" role="menu">
+
+
+
+<li class="linkcolorb9a00efb6f5c6e8a56a91390486728b2 linkhovercolorb9a00efb6f5c6e8a56a91390486728b2 customheaderlinkhovercolorb9a00efb6f5c6e8a56a91390486728b2" role="none">
+<a href="https://careers.underarmour.com?locale=es_MX" lang="es-MX" role="menuitem">Español (México)</a>
+</li>
+
+
+
+
+
+</ul>
+</div>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+<script type="text/javascript">
+            //<![CDATA[
+                $(document).on('resizeFixedHeader', function () {
+                    $('#fixedHeaderInlineStyle').remove();
+                    $("<style type='text/css' id='fixedHeaderInlineStyle'>@media only screen and (min-width: 767px) { body { padding-top: " + $('#header').outerHeight(true) + "px;} }</style>").appendTo("head");
+                }).trigger('resizeFixedHeader');
+                $(window).on( "ready", function() {
+                    $(document).trigger('resizeFixedHeader');
+                });
+                $(window).on( "load", function() {
+                    $(document).trigger('resizeFixedHeader');
+                });
+            //]]>
+        </script>
+<div class="innershell" id="innershell">
+<div class="content" id="content" role="main" tabindex="-1">
+<div class="inner">
+<div id="search-wrapper">
+
+<script type="text/javascript">
+            //<![CDATA[
+            var params = {
+                geolocation: {
+                    NO_MATCH_FOUND: 'Postal\x20code\x20not\x20supported.'
+                    ,SUGGESTION_LIMIT: 10
+                    ,SUGGESTION_MINIMUM_CHARACTERS: 2
+                    ,PAGE_LOCALE: 'en_US'
+                }
+            };
+            //]]>
+        </script>
+
+</div>
+<div class="jobDisplayShell" itemscope="itemscope" itemtype="http://schema.org/JobPosting">
+<div class="jobDisplay">
+<div class="content">
+
+<div class="job">
+<div class="jobColumnOne" style="width:70%;">
+
+
+<div class="joblayouttoken rtltextaligneligible displayTMD">
+<div class="inner fontcolorb9a00efb6f5c6e8a56a91390486728b2" style="font-family:custom184cc43183e2473a82ea8; font-size:14px;">
+<div class="row">
+<div class="col-xs-12 fontalign-left">
+<span class="rtltextaligneligible" data-careersite-propertyid="description" itemprop="description" lang="en-US" xml:lang="en-US">
+<span class="jobdescription"><p style="margin-bottom:1.0;margin-left:-4.0pt;margin-right:0.0in;margin-top:0.0in">Under Armour has one mission: to make you better. We have a commitment to innovation that lies at the heart of everything we do, not just for our athletes but also for our teammates. As a global organization, our teams around the world push boundaries and think beyond what is expected. Together our teammates are unified by our values and are grounded in our vision to inspire you with performance solutions you never knew you needed but can’t imagine living without.</p>
+<div><div style="padding:10.0px 0.0px;border:1.0px solid transparent"><div><p>As an Under Armour Rookie you’ll be given a hands-on, self-driven project that makes a real business impact. Throughout the 12 weeks you’ll work one-on-one with a mentor and have access to learning experiences, such as interactive Q&amp;A sessions with our executives and professional development opportunities with our talent advisors. With our focus on cross-functional collaboration and global mindset, as a Rookie, you get to see how your work goes way beyond yourself.</p>
+</div></div><div style="padding:10.0px 0.0px;border:1.0px solid transparent"><div>
+<p>Join us as an intern and become an integral part of the Under Armour frontend engineering team, where you'll have the opportunity to work on game-changing projects that enhance the user experience of our leading website.</p>
+<p>As an intern, you'll be at the forefront of transforming our online store. Your primary focus will be to elevate the user interface and user experience, crafting a seamless and visually stunning shopping journey. Dive into projects that involve refining navigation, optimizing page load times, and ensuring a flawless mobile experience. You'll also have the chance to contribute to the development of innovative features, including enhanced product recommendations, streamlined checkout processes, and refined storyboarding.</p>
+<p>What sets this internship apart is the immersive experience you'll gain. Collaborate closely with our agile team, master our cutting-edge CI/CD process for deploying code, and thrive in a remote work environment. Your toolkit will include TypeScript, React, and NextJS, as you tackle the challenges of a high-performance, large-scale website, providing you with invaluable insights into the world of scalable application development.</p>
+</div></div><div style="padding:10.0px 0.0px;border:1.0px solid transparent"><div>
+<ul>
+<li><span style="color:#000000">Currently enrolled in a 4-year undergraduate or graduate program (expected graduation between December 2026 - July 2027).</span></li>
+</ul></div></div><div style="padding:10.0px 0.0px;border:1.0px solid transparent"><div><p style="margin-bottom:11.0px"><span style="color:#000000">Our resume review process will start immediately upon applying for this role. If our teams are interested in your experience, you will be invited to interview virtually with members of your potential team. You may have the ability to interview for multiple roles if the opportunity arises. Once virtual interviews are completed our recruiting team will extend offers or follow up with you directly on your status.</span></p>
+</div></div></div><p><em><strong>At Under Armour, we are committed to providing an environment of mutual respect where equal employment opportunities are available to all applicants and teammates without regard to race, color, religion, sex, pregnancy (including childbirth, lactation and related medical conditions), national origin, age, physical and mental disability, marital status, sexual orientation, gender identity, gender expression, genetic information (including characteristics and testing), military and veteran status, and any other characteristic protected by applicable law.  Under Armour believes that diversity and inclusion among our teammates is critical to our success as a global company, and we seek to recruit, develop and retain the most talented people from a diverse candidate pool.  </strong></em></p>
+</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jobColumnTwo" style="width:30%;">
+
+
+
+
+
+
+<style type="text/css">
+        .buttontexta56414dc15c10ca5 a{
+            border: 1px solid transparent;
+        }
+        .buttontexta56414dc15c10ca5 a:focus{
+            border: 1px dashed #dc0019 !important;
+            outline: none !important;
+        }
+    </style>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+    (function(o,l) {
+        window.oliviaChatData = window.oliviaChatData || [];
+        window.oliviaChatBaseUrl = o;
+        window.oliviaChatData.push(['setKey', l]);
+        window.oliviaChatData.push(['start']);
+        var apply = document.createElement('script');
+        apply.type = 'text/javascript';
+        apply.async = true;
+        apply.src = 'https://dokumfe7mps0i.cloudfront.net/static/site/js/widget-client.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(apply, s);
+    })('https://olivia.paradox.ai', 'nlokxpxppndknzlpraem');
+</script>
+
+
+<script type="text/javascript">
+			//<![CDATA[
+				j2w.init({
+					"cookiepolicy"   : 3,
+					"useSSL"         : true,
+					"isUsingSSL"     : true,
+					"isResponsive"   : true,
+					"categoryId"     : 0,
+					"siteTypeId"     : 1,
+					"ssoCompanyId"   : 'ua',
+					"ssoUrl"         : 'https://career8.successfactors.com',
+					"passwordRegEx"  : '^(?=.{6,20}$)(?!.*(.)\\1{3})(?=.*([\\d]|[^\\w\\d\\s]))(?=.*[A-Za-z])(?!.*[\\u007F-\\uFFFF\\s])',
+					"emailRegEx"     : '^(?![+])(?=([a-zA-Z0-9\\\'.+!_-])+[@]([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9.-]*[a-zA-Z0-9])[.]([a-zA-Z]){1,63}$)(?!.*[\\u007F-\\uFFFF\\s,])(?!.*[.]{2})',
+					"hasATSUserID"	 : false,
+					"useCASWorkflow" : true,
+					"brand"          : "",
+					"dpcsStateValid" : true
+					
+				});
+
+				j2w.TC.init({
+					"seekConfig" : {
+						"url" : 'https\x3A\x2F\x2Fwww.seek.com.au\x2Fapi\x2Fiam\x2Foauth2\x2Fauthorize',
+						"id"  : 'successfactors12',
+						"advertiserid" : ''
+					}
+				});
+
+				$.ajaxSetup({
+					cache   : false,
+					headers : {
+						"X-CSRF-Token" : "db09ef37-6e1e-41c1-ba1d-52ad6e1771e3"
+					}
+				});
+			//]]>
+		</script>
+
+<script type="text/javascript">
+                //<![CDATA[
+                j2w.Apply.init({
+                    jobID                    : 1330072600,
+                    locale                   : 'en_US',
+                    relocateApplyURL         : '',
+                    subscribeAtApply         : true,
+                    useOnPageBusinessCard    : false,
+                    applyWithLinkedIn2Config : {"enabled":false,"companyId":null,"integrationContext":null,"internalId":"162820-en_US","email":""}
+                });
+                //]]>
+            </script>
+<script type="text/javascript">
+		//<![CDATA[
+			$(function() 
+			{
+				var ctid = 'fea7a04a-81d6-4cd1-95d7-7594f29c5bcc';
+				var referrer = '';
+				var landing = document.location.href;
+				var brand = '';
+				$.ajax({ url: '/services/t/l'
+						,data: 'referrer='+ encodeURIComponent(referrer)
+								+ '&ctid=' + ctid 
+								+ '&landing=' + encodeURIComponent(landing)
+								+ '&brand=' + brand
+						,dataType: 'json'
+						,cache: false
+						,success: function(){}
+				});
+			});
+		//]]>
+		</script>
+<script type="text/javascript">
+            //<![CDATA[
+            $(function() {
+                $('input:submit,button:submit').each(function(){
+                    var submitButton = $(this);
+                    if(submitButton.val() == '') submitButton.val('');
+                });
+
+                $('input, textarea').placeholder();
+            });
+            //]]>
+        </script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+            const jobAlertSpans = document.querySelectorAll("[data-testid=jobAlertSpanText]");
+            jobAlertSpans?.forEach((jobEl) => {
+              jobEl.textContent = window?.jsStr?.tcjobresultscreatejobalertsdetailstext || "";
+            });
+        </script>
+
+
+
+
+
+</body></html>

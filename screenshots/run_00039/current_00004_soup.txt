@@ -1,0 +1,77 @@
+<html class="html5" lang="en-US" style="--lead-brand-color: #dc0019; --lead-brand-color-secondary: #9198a1; --lead-brand-opposite-color: #fff; --lead-brand-opposite-color-secondary: #fff; --lead-black-color: #272727; --lead-error-color: #d55353; --lead-brand-border-radius: 15px; --lead-cta-primary-color: #dc0019; --lead-cta-opposite-color: #fff;" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<body class="coreCSB job-page body body" id="body">
+
+<div class="outershell" id="outershell">
+
+
+<div class="innershell" id="innershell">
+<div class="content" id="content" role="main" tabindex="-1">
+<div class="inner">
+
+<div class="jobDisplayShell" itemscope="itemscope" itemtype="http://schema.org/JobPosting">
+<div class="jobDisplay">
+<div class="content">
+
+<div class="job">
+<div class="jobColumnOne" style="width:70%;">
+
+
+<div class="joblayouttoken rtltextaligneligible displayTMD">
+<div class="inner fontcolorb9a00efb6f5c6e8a56a91390486728b2" style="font-family:custom184cc43183e2473a82ea8; font-size:14px;">
+<div class="row">
+<div class="col-xs-12 fontalign-left">
+<span class="rtltextaligneligible" data-careersite-propertyid="description" itemprop="description" lang="en-US" xml:lang="en-US">
+<span class="jobdescription">
+<div><div style="padding:10.0px 0.0px;border:1.0px solid transparent"><div>
+
+
+<p>What sets this internship apart is the immersive experience you'll gain. Collaborate closely with our agile team, master our cutting-edge CI/CD process for deploying code, and thrive in a remote work environment. Your toolkit will include TypeScript, React, and NextJS, as you tackle the challenges of a high-performance, large-scale website, providing you with invaluable insights into the world of scalable application development.</p>
+</div></div></div>
+</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
