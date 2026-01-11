@@ -315,7 +315,8 @@ export default function App() {
             </div>
           </div>
 
-          <div className="neural-panel">
+          {/* Floating Neural Graph Window */}
+          <div className="neural-floating">
             <NeuralGraph
               actorLines={actorLineCount}
               criticLines={criticLineCount}
@@ -371,20 +372,6 @@ export default function App() {
             <button className="hero-btn secondary" onClick={() => setCurrentView("profile")}>
               <span className="btn-icon">◆</span> Setup Profile
             </button>
-          </div>
-          <div className="hero-stats">
-            <div className="stat">
-              <span className="stat-value">∞</span>
-              <span className="stat-label">Applications</span>
-            </div>
-            <div className="stat">
-              <span className="stat-value">AI</span>
-              <span className="stat-label">Powered</span>
-            </div>
-            <div className="stat">
-              <span className="stat-value">0</span>
-              <span className="stat-label">Effort</span>
-            </div>
           </div>
         </div>
       )}

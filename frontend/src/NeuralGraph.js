@@ -448,19 +448,6 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
         ctx.globalAlpha = 1;
       });
 
-      // Draw "SEARCHING..." or "MATCHED: X" text
-      if (isSearching) {
-        ctx.font = "14px 'Courier New', monospace";
-        ctx.fillStyle = "#00ff66";
-        ctx.textAlign = "center";
-        ctx.fillText(`SEARCHING...`, centerX, height - 20);
-      } else if (highlightedWord) {
-        ctx.font = "14px 'Courier New', monospace";
-        ctx.fillStyle = "#ffd700";
-        ctx.textAlign = "center";
-        ctx.fillText(`MATCHED: ${highlightedWord}`, centerX, height - 20);
-      }
-
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -477,9 +464,6 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
     <div className="neural-graph-container">
       <div className="neural-graph-header">
         <span className="neural-title">NEURAL MATCHER</span>
-        <span className={`neural-status ${highlightedWord ? "" : "active"}`}>
-          {highlightedWord ? `● MATCHED` : "○ SEARCHING"}
-        </span>
       </div>
       <canvas
         ref={canvasRef}
