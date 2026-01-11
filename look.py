@@ -20,7 +20,17 @@ from datetime import datetime, timezone
 from look_actions import want_actions, execute_actions
 from extraction import extract_info, safe_click
 
+from fastapi.middleware.cors import CORSMiddleware  # Add this import
+
 app = FastAPI(title="autojob API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # React dev server
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 class ApplyRequest(BaseModel):
     url: str

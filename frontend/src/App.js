@@ -8,7 +8,7 @@ let actor_lines = [];
 let critic_lines = [];
 
 const POLL_INTERVAL = 500;     // ms
-const TYPE_INTERVAL = 22;     // ms per character
+const TYPE_INTERVAL = 18;      // ms per character (slightly faster for snappier feel)
 
 export default function App() {
   const [backendUrl, setBackendUrl] = useState("");
@@ -17,7 +17,13 @@ export default function App() {
   const [actorDisplay, setActorDisplay] = useState([
     { ts: "", text: ">> Awaiting uplink... establishing signal...\n" },
   ]);
-  const [criticDisplay, setCriticDisplay] = useState([]);
+  const [criticDisplay, setCriticDisplay] = useState([
+    { text: ">> Critic module standby...\n" },
+  ]);
+
+  // Track if currently typing for visual caret
+  const [isActorTyping, setIsActorTyping] = useState(false);
+  const [isCriticTyping, setIsCriticTyping] = useState(false);
 
   const actorQueue = useRef([]);
   const criticQueue = useRef([]);
@@ -38,7 +44,7 @@ export default function App() {
       setStarted(true);
 
       try {
-        await fetch("http://0.0.0.0:8000/apply", {
+        await fetch("http://localhost:8000/apply", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ url: backendUrl }),
@@ -60,8 +66,8 @@ export default function App() {
     const poll = async () => {
       try {
         const [actorRes, criticRes] = await Promise.all([
-          fetch("http://0.0.0.0:8000/get_actor"),
-          fetch("http://0.0.0.0:8000/get_critic"),
+          fetch("http://localhost:8000/get_actor"),
+          fetch("http://localhost:8000/get_critic"),
         ]);
 
         const actorData = await actorRes.json();
@@ -106,10 +112,14 @@ export default function App() {
 
     const tick = () => {
       if (actorTyping.current) return;
-      if (actorQueue.current.length === 0) return;
+      if (actorQueue.current.length === 0) {
+        setIsActorTyping(false);
+        return;
+      }
 
       const { ts, text } = actorQueue.current.shift();
       actorTyping.current = true;
+      setIsActorTyping(true);
 
       // Immediately render timestamp (no slow typing)
       setActorDisplay((prev) => [
@@ -130,6 +140,12 @@ export default function App() {
         if (i >= text.length) {
           clearInterval(typer);
           actorTyping.current = false;
+          // Small delay before removing caret if queue is empty
+          setTimeout(() => {
+            if (actorQueue.current.length === 0) {
+              setIsActorTyping(false);
+            }
+          }, 300);
         }
       }, TYPE_INTERVAL);
     };
@@ -148,12 +164,16 @@ export default function App() {
 
     const tick = () => {
       if (criticTyping.current) return;
-      if (criticQueue.current.length === 0) return;
+      if (criticQueue.current.length === 0) {
+        setIsCriticTyping(false);
+        return;
+      }
 
       const line = criticQueue.current.shift();
       criticTyping.current = true;
+      setIsCriticTyping(true);
 
-      setCriticDisplay((prev) => [...prev, ""]);
+      setCriticDisplay((prev) => [...prev, { text: "" }]);
 
       let i = 0;
 
@@ -161,13 +181,19 @@ export default function App() {
         i++;
         setCriticDisplay((prev) => {
           const copy = [...prev];
-          copy[copy.length - 1] = line.slice(0, i);
+          copy[copy.length - 1].text = line.slice(0, i);
           return copy;
         });
 
         if (i >= line.length) {
           clearInterval(typer);
           criticTyping.current = false;
+          // Small delay before removing caret if queue is empty
+          setTimeout(() => {
+            if (criticQueue.current.length === 0) {
+              setIsCriticTyping(false);
+            }
+          }, 300);
         }
       }, TYPE_INTERVAL);
     };
@@ -199,7 +225,7 @@ export default function App() {
           value={backendUrl}
           onChange={(e) => setBackendUrl(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Enter target URL"
+          placeholder="Enter target URL..."
           autoFocus
         />
         {!started && <span className="caret" />}
@@ -209,31 +235,46 @@ export default function App() {
       <div className="split-terminals">
         {/* ACTOR */}
         <div className="terminal actor">
-          <div className="terminal-header">ACTOR</div>
+          <div className="terminal-header">
+            ACTOR
+            <span className="status-indicator">
+              <span className="status-dot" />
+              {isActorTyping ? "PROCESSING" : "READY"}
+            </span>
+          </div>
           <div className="terminal-body">
             {actorDisplay.map((line, idx) => (
               <div key={idx} className="line">
                 {line.ts && (
-                  <span className="timestamp">[{line.ts}] </span>
+                  <span className="timestamp">[{line.ts}]</span>
                 )}
                 <span>{line.text}</span>
               </div>
             ))}
-            {actorTyping.current && <span className="typing-caret" />}
+            {isActorTyping && <span className="typing-caret" />}
             <div ref={actorEndRef} />
           </div>
         </div>
 
+        {/* Animated Divider */}
+        <div className="terminal-divider" />
+
         {/* CRITIC */}
         <div className="terminal critic">
-          <div className="terminal-header">CRITIC</div>
+          <div className="terminal-header">
+            CRITIC
+            <span className="status-indicator">
+              <span className="status-dot" />
+              {isCriticTyping ? "ANALYZING" : "STANDBY"}
+            </span>
+          </div>
           <div className="terminal-body">
             {criticDisplay.map((line, idx) => (
               <div key={idx} className="line">
-                {line}
+                {line.text}
               </div>
             ))}
-            {criticTyping.current && <span className="typing-caret" />}
+            {isCriticTyping && <span className="typing-caret" />}
             <div ref={criticEndRef} />
           </div>
         </div>
