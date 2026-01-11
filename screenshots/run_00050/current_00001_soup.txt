@@ -1,0 +1,18 @@
+<html dir="ltr" lang="en"><head><style data-emotion="remix-css hlgwow" data-s="">.remix-css-hlgwow{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:grid;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-box-flex-wrap:wrap;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-overflow-scrolling:touch;position:relative;overflow:hidden;padding:2px 8px;box-sizing:border-box;}</style></head><body style='--custom-link-color:#3d74cc;--custom-active-field-color:#709ce2;--custom-focus-color:#709ce2;--custom-list-hover-color:#d5e2f6;--custom-primary-typography-color:#3d74cc;--custom-button-color:#578bdd;--custom-button-hover-color:#709ce2;--custom-button-text-color:#000000;--custom-primary-font-family:"Untitled Sans";--custom-secondary-font-family:"Untitled Sans";--custom-dropdown-selection-color:#c4d6f3;--custom-secondary-typography-color:#262626;--custom-secondary-typography-10:#2626261A;--custom-secondary-typography-30:#2626264D;--custom-secondary-typography-60:#26262699;--custom-background-color:#ffffff'><script>((STORAGE_KEY, restoreKey) => {
+    if (!window.history.state || !window.history.state.key) {
+      let key = Math.random().toString(32).slice(2);
+      window.history.replaceState({
+        key
+      }, "");
+    }
+    try {
+      let positions = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "{}");
+      let storedY = positions[restoreKey || window.history.state.key];
+      if (typeof storedY === "number") {
+        window.scrollTo(0, storedY);
+      }
+    } catch (error) {
+      console.error(error);
+      sessionStorage.removeItem(STORAGE_KEY);
+    }
+  })("positions", null)</script></body></html>

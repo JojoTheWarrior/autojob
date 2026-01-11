@@ -15,7 +15,7 @@ import re
 import json
 import os
 
-from get_actions import get_actions
+from look_actions import get_actions
 from extraction import extract_info, safe_click
 
 # initializes selenium driver
