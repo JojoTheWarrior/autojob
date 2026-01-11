@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from moorcheh_sdk import MoorchehClient
 import base64
 from openai import OpenAI
+import random
 
 load_dotenv()
 
@@ -59,6 +60,12 @@ def want_actions(screenshot, past_wants=[]):
     max_info = open("./test_info.json", "r", encoding="utf-8").read()
 
     prompt += "Also, here's all the applicant information about me you could need. If you're still missing some info, fill it with a random and generic guess: " + max_info
+
+    if random.randint(1, 2) == 2:
+        prompt += "This time, make sure to ask specifically to press Enter at the end of your action."
+
+    if random.randint(1, 10) == 10:
+        prompt += "If you look at your past actions and realize that you've been trying the same thing for a while, try scrolling down."
 
     response = client.responses.create(
         model="gpt-4.1-mini",

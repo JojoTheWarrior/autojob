@@ -1,0 +1,545 @@
+<html class="external en_ca desktop" data-ph-id="ph-page-element-page88-v4LOX6" key-lang="siteLangClassName" lang="en"><!--<![endif]--><head data-ph-id="ph-page-element-page88-xPy5ie">
+
+ 
+
+
+
+
+
+
+
+<script type="text/javascript"> /*<!--*/ var phApp = phApp || {"widgetApiEndpoint":"https://jobs.rbc.com/widgets","country":"ca","deviceType":"desktop","locale":"en_ca","absUrl":true,"refNum":"RBCAA0088","cdnUrl":"https://cdn.phenompeople.com/CareerConnectResources","baseUrl":"https://jobs.rbc.com/ca/en/","baseDomain":"https://jobs.rbc.com","phenomTrackURL":"jobs.rbc.com/ca/en/phenomtrack.min.js","pageName":"apply","siteType":"external","rootDomain":"https://jobs.rbc.com","pageId":"page88"}; phApp.ddo = {"siteConfig":{"status":"success","errorCode":null,"errorMsg":null,"data":{"settingsIdentifiersFileUrl":"https://cdn.phenompeople.com/CareerConnectResources/pcs/common/1765810488809-classesForCms.js","phwPxScrVerionUrl_old":"pcs/common/phw-px-hadlr.1748511046335.js","thirdPartyLibraries":{"internal":["heap-analytics","open-replay"]},"phBridgeEvents":["apply_click","job_preview_click"],"imEagerLoadDdoList":[{"name":"getProfileStatus","cache":false},{"name":"getRegionLocales","cache":true},{"name":"getIMConfigurations","cache":true},{"name":"getClientReferFlow","cache":true},{"name":"imVariantsConfigInfo","cache":true},{"name":"mergedProfile","cache":false},{"name":"getProfileWeightage","cache":false},{"name":"masterFrequencyV1","cache":true},{"name":"userAlertSettings","cache":true},{"name":"fitScoreSettingsIM","cache":true},{"name":"employeeSearchConfig","cache":true},{"name":"getEmployeeProfile","cache":false},{"name":"getGroupInfo","cache":true},{"name":"getAppliedJobs","cache":true},{"name":"getProfileFieldsSettings","cache":true}],"filePicker":{"dropbox":{"clientId":"1vpordy4ijn2x08","devkey":""}},"ignoreCovidWidgetPagesList":["chatbot"],"uniqueEventSubsList":["getUserProfileData"],"smoothAnchorSettings":{"ignore":true},"embedScriptVersion":"0.9.4","isUrlLowerForSeo":false,"recommendedTrackingConfig":{"category":{"storageKey":"categories","ddoKeysToStore":["category"],"maxKeysToStore":"4"},"job":{"storageKey":"jobsViewed","ddoKeysToStore":["jobSeqNo"],"maxKeysToStore":"4"},"search-results":[{"storageKey":"keywords","ddoKeysToStore":["keywords"],"maxKeysToStore":"4"},{"storageKey":"locations","ddoKeysToStore":["location","field"],"maxKeysToStore":"4"}]},"debounceTimer":350,"eagerLoadDDOsToSkipLazyCalls":["apply"],"ignoreCookiePages":["chatbot"],"trustArc":{"attr":{"id":"truste-show-consent"},"actionMethod":"truste.eu.clickListener"},"elementsToLoadByModule":{"videoAssessment":[{"tag":"link","attributes":{"href":"https://cdn.phenompeople.com/CareerConnectResources/common/video-platform/js/vs-master-theme-1744368002549.css","rel":"stylesheet","type":"text/css"}}],"automationEngine":[{"tag":"script","attributes":{"src":"https://cdn.phenompeople.com/CareerConnectResources/hvh/aeBootstrapper1.js","type":"text/javascript"},"elementId":"aeBundle"}],"onboarding":[{"tag":"link","attributes":{"href":"https://pp-cdn.phenompeople.com/CareerConnectResources/st/common/video-platform/js/onboarding-theme.css","rel":"stylesheet","type":"text/css"},"elementId":"onboardingTheme"},{"tag":"link","attributes":{"href":"https://pp-cdn.phenompeople.com/CareerConnectResources/st/common/video-platform/js/form-renderer.css","rel":"stylesheet","type":"text/css"},"elementId":"onboardingFormRenderer"}]},"globalManagedWidgetIds":["8b82bfdaafd4d8504005407db933c9a6"],"phwPxScrVerionUrl_bkp":"common/js/canvas/vendor/phw-px-hadlr-1.3.js","securiti":{"attr":{"href":"javascript:showConsentPreferencesPopup()"}},"maps":{"google":{"apiScript":"https://maps.googleapis.com/maps/api/js","clusterJsScript":"markerclusterer-v1.js","gmapsInfoBoxScript":"gmaps-infobox-v1.js","apiKey":"AIzaSyBqM-rW0r-sR9PerNAvvsmzbBeoFu3Ycz8"},"mapbox":{"mapboxScript":"mapbox-gl.js","superClusterJsScript":"supercluster.min.js","apiKey":"pk.eyJ1IjoicGhlbm9tcGVvcGxlIiwiYSI6ImNqa3dreDVkZDB4YWEzam9hMXp0eWVqbXgifQ.Mpna1KIqU8Gj6zjPy4iygw"},"mapboxCN":{"mapboxScript":"mapbox-gl-v1.1.0.js","superClusterJsScript":"supercluster.min.js","mapboxTurf":"mapbox-turf.min-v1.js","mapboxSearch":"mapbox-gl-geocoder.min.js","mapboxDirections":"mapbox-gl-directions.js","enableDirections":true,"apiKey":"pk.eyJ1IjoicGhlbm9tcGVvcGxlIiwiYSI6ImNqa3dreDVkZDB4YWEzam9hMXp0eWVqbXgifQ.Srl2-pw3xDRilymEjEoeig","baseApiUrl":"https://api.mapbox.cn"}},"otPrivacyPolicyScript":"https://cdn.phenompeople.com/CareerConnectResources/prod/pcs/common/ot-priv-pol-3.0.js","ignoreLinkedInStateParam":false,"tokenConfiguredTenants":{"refNums":["RBCAA0088"]},"fetchBlogShareSettingsFromSiteconfig":true,"pxScrVerionUrl_bkp":"common/js/vendor/ph-px-hadlr-1.15.js","phwPxScrVerionUrl_bkp_new":"pcs/common/phw-px-hadlr.js","oneTrust":{"class":["ot-sdk-show-settings"]},"videoScreeningGlobalStyles":"https://pp-cdn.phenompeople.com/CareerConnectResources/st/common/video-platform/js/ph-vs-global-styles-v1.css","cdnConfig":{"cdnDdos":["fitScoreSettings","landingPageOverview","categoryContentV2","candidateProfileConfig","categoryMasterData","jobTagSettings","getBusinessRules","getMasterCategories","categoryMasterDataV2","caasFetchRawConfig","globalSearchConfig","categoryContent","siteBranding","blogsharewidgetsettings","audiencePxWidgetConfig","jobsharewidgetsettings","npsConfig","socialConnectOptions","getRegionLocales","jobLogoConfig","supportedLanguages","getMasterLocations","locationmapsettings","pxAudJobwidgetsettings","getRegionLocales","eventsharewidgetsettings","jobwidgetsettings","fyfConfig","getPiiConsentConfig","glassdoorReviews","masterFrequencyV1","getWidgetVersions"],"globallyManagedDdos":["getWidgetVersions"],"cdnUrl":"https://content-us.phenompeople.com","pageNameLevelDdos":[],"pageIdlevelDdos":[]},"platformLevelTriggers":[{"triggerCondition":[{"operand":"AND","conditions":[{"triggerType":"site_config_based_trigger","triggerMetadata":{"configKey":["aiSummaryEnabled"]}}]}],"triggerActions":[{"actionType":"load_widget","actionMetadata":{"widgetId":"zVydrA","instanceId":"inzVydrA","placementDataByPage":{"job":{"selector":"[data-func-widget-id^=\"ph-job-details-v1-job-nav\"]","position":"before"}},"defaultPlacementData":{"selector":"[data-func-widget-id^=\"ph-job-details-v1-job-nav\"]","position":"before"}}}]}],"crawlerUserAgents":"Screaming Frog|googlebot|yahoo|bingbot|baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator|redditbot|Applebot|WhatsApp|flipboard|tumblr|bitlybot|SkypeUriPreview|nuzzel|Discordbot|Google Page Speed|Qwantify|pinterestbot|Custom|msnbot|DuckDuckBot|BingPreview|spider|MJ12bot|deepcrawl|Chrome-Lighthouse","siteSettings":{"refineSearch":{"enabledFacets":["category","subCategory","platform","careerLevel","type","jobType","country","state","city"],"facetDisplayNames":{"category":"Category","subCategory":"Sub Category","platform":"Platform","careerLevel":"Career Level","type":"Employment Type","jobType":"Job Type","country":"Country","state":"State / Province","city":"City"},"facetPlaceholderNames":{"category":"Search in Category","subCategory":"Search in Sub Category","platform":"Search in Platform","careerLevel":"Search in Career Level","type":"Search in Employment Type","jobType":"Search in Job Type","country":"Search in Country","state":"Search in State / Province","city":"Search in city"},"defaultFacetsToOpen":[],"facetConfig":{"phLocSlider":{"sliderRadius":1,"aboveMaxRadius":false,"locationRangeEnd":100,"sliderDelta":1}}},"gdpr":{"cookieType":"session","enabled":false},"locationUnit":"kilometers","externalCookieConfig":{"scriptUrl":"https://cdn.cookielaw.org/scripttemplates/otSDKStub.js","availOnAllowedCookies":["C0002","C0003"],"domainKey":""}},"size":"10","refNum":"RBCAA0088","siteVariant":"external","iubenda":{"class":["iubenda-cs-preferences-link"],"attr":{"href":"javascript:_iub.cs.ui.openPreferences()"}},"isNativeEmailClientForBlog":true,"iscdnEnabled":true,"calendarApiKey":{"clientId":"aPuJFtcvVzuUHrqeLmPL36170","apiToken":"api1514482884HylDN8tqa6mgQxWCpnjo36170","userZone":true},"trackingConfig":{"ddoDataPath":{"jobDetail":"data.job"},"job_category_click":{"trait14":"key"},"job_category_search_click":{"trait14":"key"},"play_click":{"trait260":"videotype","videoId":"videoid"},"pause_click":{"trait260":"videotype","videoId":"videoid"},"similar_job_click":{"trait12":"jobSeqNo","related":{"ddo":[{"name":"jobDetail","data":{"trait5":"jobSeqNo","trait14":"category"}}]}},"linkedin_recommended_job_click":{"trait5":"jobSeqNo","trait14":"category"},"recently_viewed_job_click":{"trait5":"jobSeqNo","trait14":"category"},"recommended_job_click":{"trait5":"jobSeqNo","trait14":"category"},"next_click":{"trait254":"stepName","typedValue":"typedValue","selected_values":"selected_values"},"ddo_failure":{"trait254":"stepName","response":"response","ddoKey":"ddoKey"},"ddo_error":{"trait254":"stepName","error":"error","ddoKey":"ddoKey"},"skip_questions_click":{"trait254":"stepName"},"previous_click":{"trait254":"stepName"},"registration_submit":{"trait27":"email","trait15":"firstName","trait24":"phone"},"edit_profile_information":{},"resume_remove_click":{},"profile_questions_click":{},"resume_upload_click":{},"create_profile_click":{},"upload_new_file_click":{},"clear_text_click":{"trait6":"clearSearchValue"},"send_feedback_click":{"userFeedback":"userFeedback"},"submit_rating_click":{"userRating":"userRating"},"near_job_click":{"trait5":"jobSeqNo","trait14":"category"},"suggestions":{"stepName":"stepName","typed_values":"typed_values","selected_values":"selected_values"},"fyf_step_loaded":{"step":"step"},"fyf_options_closed":{},"favorite_job_click":{"trait5":"jobSeqNo","trait14":"category"},"job_added_to_jobcart":{"trait5":"jobSeqNo","trait14":"category"},"job_unfavorited":{"trait5":"jobSeqNo","trait14":"category"},"job_favorite_delete_click":{"trait5":"jobSeqNo","trait14":"category"},"type_ahead_search":{},"similar_job_see_more_click":{},"linkedin_login_click":{},"linkedin_logout_click":{},"view_all_glassdoor_reviews_click":{},"homepage_category_click":{"trait14":"key"},"category_click":{"trait14":"key"},"job_click":{"trait5":"jobSeqNo","trait14":"category"},"previous_job_click":{"trait5":"jobSeqNo"},"next_job_click":{"trait5":"jobSeqNo"},"linkedin_recommended_category_click":{"trait14":"category"},"back_to_search_results_click":{},"share_event":{"trait269":"eventScheduleId","trait213":"provider"},"blog_click":{"trait283":"url"},"blog_category_click":{"trait14":"categoryName"},"next_blog_click":{"trait283":"url"},"previous_blog_click":{"trait283":"url"},"blog_details_view":{"trait283":"blog"},"navigate_to_tweet_click":{"tweetUrl":"tweetUrl"},"fit_level_loaded":{"jobsFitLevel":"jobsFitLevel","totalJobs":"totalJobs","availableFitLevelCount":"availableFitLevelCount"},"smart_tags_loaded":{"smartJobTags":"smartJobTags","totalJobs":"totalJobs","availableJobTagCount":"availableJobTagCount"},"edit_role_click":{"trait13":"trait13"},"select_role_click":{"trait13":"trait13","trait260":"trait260"},"save_employee_info_click":{"trait62":"trait62"},"update_employee_info_click":{"trait62":"trait62"},"signIn_click":{"trait260":"trait260","userId":"userName"},"signUp_click":{"trait260":"trait260","userId":"userName"},"reset_password_click":{"trait260":"trait260","userId":"userName"},"create_password_click":{"trait260":"trait260","type":"type"},"app_download_click":{"trait260":"appName","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"user_decline_click":{"trait5":"videoScreenId","trait14":"category","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"user_accept_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"start_process_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"accept_practice_click":{"trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"reject_practice_click":{"trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"answer_record_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId","videoScreenQuestionId":"videoScreenQuestionId"},"answer_submit_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"answer_retake_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId","videoScreenQuestionId":"videoScreenQuestionId"},"answer_continue_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId","videoScreenQuestionId":"videoScreenQuestionId"},"answer_review_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId","videoScreenQuestionId":"videoScreenQuestionId"},"submit_application_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"export_videos_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"restart_application_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"start_now_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"continue_process_click":{"trait5":"videoScreenId","trait14":"category","trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"contact_recruiter_click":{"trait261":"userId","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"agree_click":{"videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"submit_feedback_click":{"rating":"rating","feedback":"feedback","videoScreenId":"videoScreenId","videoScreenInterviewId":"videoScreenInterviewId"},"video-upload-error":{"url":"url","status":"status","questionId":"questionId","response":"response"},"apply_thank_you_loaded":{"hvhConfig":"hvhConfig"},"hvh_asset_initiated":{"thankYouUri":"thankYouUri"},"hvh_asset_res":{"res":"res"}},"lqipImage":"https://assets.phenompeople.com/CareerConnectResources/common/assets/images/gray.png","isHvhishvhjobApply":true,"navItems":{"showExternalEvents":true,"cdnCaasContentUrl":"https://content-us.phenompeople.com/api/content-delivery/caasContentV1","eventsEnabled":false,"audPxConfig":{"newVersion":"4.0","oldVersion":"2.0"},"blogsEnabled":false,"navMenuItems":[],"cdnCaasContentEnabled":true,"showExternalBlogs":true,"navMenuItemsData":{"blogs":{"url":"https://jobs.rbc.com/ca/en/blog"},"events":{"url":"https://jobs.rbc.com/ca/en/events"}}},"imageLoadType":{"desktop":"progressive","mobile":"lazy"},"resumableUploadConfig":{"chunkSize":"1","simultaneousUploads":"1","allowedVideoFormats":["mp4","m4p","m4v","mov","qt","avi","wmv","webm","mpg","mpeg"]},"locale":"en_ca","siteLevelWidgetBindables":{"97e696f90c1e5c417da8b4484b49c7b0":{"locationSearch":true},"ad204a0c40fc1a98d614669f1bc50ab3":{"locationSearch":true}},"phwPxScrVerionUrl":"https://cdn.phenompeople.com/CareerConnectResources/pcs/common/1749810627131-phw-px-hadlr.js","vendorScripts":{"jquery":"jquery-3.6.1.min.js","jqueryMigrate":"jquery-migrate.min-1.1.js","plyrScript":"plyr-3.7.8.js","plyrStyle":"plyr-3.7.8_1.css","videojs-wavesurfer":"videojs-wavesurfer_3.9.0.js","wavesurfer":"wavesurfer_6.6.4.min.js","wavesurfer-microphone":"wavesurfer.microphone.min_6.6.4.js","mediaInfo":"mediainfo_0.1.9.min.js"},"phwPxScrVerionUrl_1":"prod/pcs/common/phw-px-hadlr-1728036837721.js","widgetScriptsConfig":{"cdnBaseUrl":"https://pp-cdn.phenompeople.com","widgetScriptPath":"CareerConnectResources/pp/agWidgets"},"ally":{"layerEnabled":true,"cdnUrl":"/common/js/ally/ph-ally-v1.1.js","allyScript":"/common/js/ally/ph-ally-layer-v1.19.js","allySkipToContent":{"isEnabled":true,"selectors":"#skip-content, #ph-skip-content, #skipToMainContent, .ae-skipto-main"},"reorderCookie":true,"userAgent":"AudioEye"},"pxScrVerionUrl":"https://cdn.phenompeople.com/CareerConnectResources/pcs/common/1755880496065-ph-px-hadlr-1.0.js","videoAssessmentPagesList":["video-assessment-landing-page","video-assessment-recording","video-assessment-thankyou","interview-landing-page","interview-recording","interview-thankyou","video assessment landing page","video assessment recording","video assessment thankyou","interview landing page","interview recording","interview thankyou","screening-welcome","screening-answering","screening-thankyou"],"oauth":{"indeed":{"clientId":"bd63e9975aacf4577c4662fcb002494dcb83887f82d51453405f60b29c77609a"},"xing":{"clientId":"c3bdfb74291c0e358e89"},"linkedIn":{"clientIdOld":"75qvndrmqmkxfo","clientId":"78mq36mb73ep5m","loginUrl":"https://www.linkedin.com/oauth/v2/authorization","logoutUrl":"https://api.linkedin.com/uas/oauth/invalidateToken","redirectUri":"/socialAuth/li","response_type":"code","scope":"r_liteprofile r_emailaddress"},"google":{"loginUrl":"https://accounts.google.com/o/oauth2/auth","logoutUrl":"https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout","clientId":"876228513716-npfer46h51po4nn5c1pafndsg87i2bm7.apps.googleusercontent.com","scope":"https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/user.phonenumbers.read","redirectUri":"/socialAuth/g","response_type":"code"},"google-signin":{"loginUrl":"https://accounts.google.com/o/oauth2/auth","logoutUrl":"https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout","clientId":"876228513716-npfer46h51po4nn5c1pafndsg87i2bm7.apps.googleusercontent.com","scope":"https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/user.phonenumbers.read","redirectUri":"/iauth/g","response_type":"code"},"facebook":{"loginUrl":"https://www.facebook.com/dialog/oauth","logoutUrl":"","clientId":"1633947069976673","redirectUri":"/socialAuth/fb","scope":"email public_profile","response_type":"code"}},"pageNameMap":{"404":"404_page_view","home":"home_page_view","category":"job_category_page_view","job":"job_details_view","search-results":"search_result_page_view","apply":"apply_page_view","glassdoorReviews":"glassdoor_reviews_page_view","jobcart":"favorites_page_view","jointalentcommunity":"jtc_page_view","featuredOpportunities":"job_category_page_view","businessUnit":"job_category_page_view","event":"event_details_view","events":"event_results_page_view","saved-jobs":"favorites_page_view","blogarticle":"blog_details_page","video-assessment-landing-page":"video_assessment_landing_page_view","video-assessment-recording":"video_assessment_recording_page_view","video-assessment-thankyou":"video_assessment_thankyou_page_view","interview-landing-page":"interview_landing_page_view","interview-recording":"interview_recording_page_view","interview-thankyou":"interview_thankyou_page_view","screening-welcome":"screening_welcome_page_view","screening-answering":"screening_answering_page_view","screening-outro":"screening_thankyou_page_view"},"blogsharewidgetsettings":{"options":[{"name":"whatsapp","order":0,"baseUrl":"https://api.whatsapp.com/send?&text=","eventName":"Share_whatsapp","settings":{"icon":"icon-whatsapp-1","iconBrandColor":"","popUpParams":"resizable,scrollbars,status,height=500,width=500","params":{},"label":false},"isSelected":true},{"name":"linkedin","order":1,"baseUrl":"https://www.linkedin.com/shareArticle?mini=true&url=","eventName":"share_blog","settings":{"icon":"icon-linkedin-2","iconBrandColor":"","popUpParams":"resizable,scrollbars,status,height=500,width=500","params":{"title":"shareInfoText"},"label":false},"isSelected":true},{"name":"facebook","order":3,"baseUrl":"https://facebook.com/sharer.php?u=","eventName":"share_blog","settings":{"icon":"icon-facebook","iconBrandColor":"","popUpParams":"resizable,scrollbars,status,height=500,width=500","params":{"t":"shareInfoText"},"label":false},"isSelected":true},{"name":"twitter","order":0,"baseUrl":"https://twitter.com/share?url=","eventName":"share_blog","settings":{"icon":"icon-twitter","iconBrandColor":"","popUpParams":"resizable,scrollbars,status,height=500,width=500","params":{"text":"shareInfoText"},"label":false},"isSelected":true},{"name":"email","order":6,"baseUrl":"","eventName":"share_blog","settings":{"icon":"icon-email-2","iconBrandColor":"","popUpParams":"resizable,scrollbars,status,height=500,width=500","params":{},"label":false},"isSelected":true}],"brandStyle":true,"widgetStyle":"style3","isInline":true,"size":"16","spacing":"21","color":"#fff","backgroundColor":"#ggg","height":"34","width":"34","line-height":"30","lineHeight":"30","borderWidth":"1","borderStyle":"solid","borderColor":"transparent","borderRadius":"100","locale":"en_us","siteVariant":"external"},"botEnabled":false,"onboardingPagesList":["onboarding-tasks","onboarding-home","Onboarding-Tasks","Onboarding-Home"],"kalturaConfig":{"partnerId":"2716851","playerId":"45245971"},"pxScrVerionUrl_backup":"https://cdn.phenompeople.com/CareerConnectResources/pcs/common/1744722002080-ph-px-hadlr.js","mapBoxGlScript":"mapbox-gl-v1.1.0.js","urlMap":{"home":"home","category":"c/:category","job":"job/:jobId/:title","service":"service/:jobId/:title","jobcart":"jobcart","search-results":"search-results","glassdoor-reviews":"glassdoor-reviews","event":"event/:eventScheduleId/:title","events":"events","talentcommunity":"talentcommunity","talentcommunityupdate":"talentcommunityupdate","blogarticle":"blogarticle/:url","jobalert":"jobalert","employee-profile":"employeeprofile","editprofile":"editprofile","businessUnit":":url","featuredOpportunities":":url","di_about":"di/about/:groupId","di_details":"di/details/:groupId","di_events":"di/events/:groupId","di_groups":"di/groups","di_highlights":"di/highlights/:groupId","di_jobs":"di/jobs/:groupId","di_members":"di/members/:groupId","referrals_candidate":"referrals/candidate","referrals_referredcandidates":"referrals/referredcandidates","referrals_friendsinterests":"referrals/friendsinterests","referrals_home":"referrals/home","referrals_candidatesuniversity":"referrals/candidatescompany","employees_home":"employees/home","lms_courses":"lms/courses","lms_savedcourses":"lms/savedcourses","gigs_details":"gigs/details/:gigId","gigs_searchresults":"gigs/searchresults","nla_home":"nla/home","nla_search":"nla/search","gigs_manage":"gigs/manage","gigs_applications":"gigs/applications","gigs_applicants":"gigs/applicants/:gigId","events_event":"events/event/:eventScheduleId/:title","events_home":"events/home","my-profile":"myprofile","cp_createpath":"cp/createpath","cp_home":"cp/home","cp_explore":"cp/explore","mentoring_relationship":"mentoring/relationship/:mentorshipId","mentoring_mentees":"mentoring/mentees","mentoring_mentors":"mentoring/mentors","mentoring_searchresults":"mentoring/searchresults","settings":"settings","story":"story/:contentId/:title","video-assessment-landing-page":"video-assessment-landing-page","video-assessment-recording":"video-assessment-recording","video-assessment-thankyou":"video-assessment-thankyou","forwardApply":"hvhapply","interview-landing-page":"interview-landing-page","interview-recording":"interview-recording","interview-thankyou":"interview-thankyou","roles_details":"roles/details/:jobCode/:jobTitle","roles_search-results":"roles/searchresults","screening-welcome":"screening-welcome","screening-answering":"screening-answering","screening-thankyou":"screening-thankyou","pmr_review":"pmr/review/:formId","alumni_my-profile":"alumni/myprofile"},"categoryUrlMap":{"RBOCCA_Marketing_Communications":"c/marketing-|-communications-jobs","RBCAA0088_Technology_Analytics_Research":"c/technology-analytics-research-jobs","RBCAA0088_Marketing_Communications":"c/marketing-communications-jobs","RBOCCA_Strategy_Project_Program_Management":"c/strategy-|-project-program-management-jobs","RBCAA0088_category_76":"c/marketing-communications-pr-jobs","RBOCCA_Finance_Accounting":"c/finance-|-accounting-jobs","RBCAA0088_Human_Resources":"c/human-resources-jobs","RBCAA0088_Rotational_Programs_Internships":"c/rotational-programs-|-internships-jobs","RBOCCA_Rotational_Programs_Internships":"c/rotational-programs-internships-jobs","RBCAA0088_Operations":"c/operations-jobs","RBCAA0088_Strategy_Project_Program_Management":"c/strategy-project-program-management-jobs","RBCAA0088_Other":"c/other-jobs","RBOCCA_Customer_Service_Client_Advice_Sales":"c/customer-service-|-client-advice-|-sales-jobs","RBCAA0088_Customer_Service_Client_Advice_Sales":"c/customer-service-client-advice-sales-jobs","RBOCCA_Technology_Analytics_Research":"c/technology-|-analytics-|-research-jobs","RBOCCA_Human_Resources":"c/human-resources-jobs","RBCAA0088_Finance_Accounting":"c/finance-|-accounting-jobs","RBCAA0088_Audit_Compliance_Legal_Risk":"c/audit-compliance-legal-risk-jobs","RBCAA0088_Call_Centre":"c/call-centre-jobs"},"isNativeEmailClient":true,"captchaConfig":{"useCaptcha":false,"siteKey":"6LcV6MIUAAAAAN99to_j66BSDkGwjWcsjh2iTj1W","scriptSrc":"https://www.google.com/recaptcha/api.js?render=explicit&hl={{locale}}","divId":"ph-custom-captcha"},"automationEnginePagesList":["hvh-apply2","hvh apply","hvh apply2","hvhapply","hvh-apply","Hvh apply2","schedule-slot","onboarding","Onboarding","onboarding-tasks","onboarding-home","Onboarding-Tasks","Onboarding-Home"]},"reqData":null},"caasLazyLoadWidgetVersions":{"status":"success","errorCode":null,"errorMsg":null,"data":{},"reqData":null},"jobCartV2":{"result":[],"message":"Record not found","status":600},"response":{"STATUS":"success","response":{"jobId":"R-0000152791","jobSeqNo":"RBCAA0088R0000152791EXTERNALENCA","jobTitle":"2026 Summer Project Intern (4 months)","refNum":"RBCAA0088","userProfileType":"","status":"pageLoaded","statusCode":"PAGE_LOADED","statusMessage":"Page loaded successfully","stepNum":"","jobData":{"source":"WORKDAY","siteType":"external","location":"600 QUEENS PLATE DR, TORONTO, ON M9W 0A4, Canada","supQuestionnarieName":"2024 P&CB Summer Bilingual - copy","city":"TORONTO","hasPrimaryQuestionnaire":"yes","jobFamily":"Internship Programs","visibilitySiteType":["external"],"jobCountry":"Canada","postedDate":"2025-12-31T00:00:00.000+0000","primaryQuestionnaireId":"Primary External Applicant Questionnaire - Canada","jobSeqNo":"RBCAA0088R0000152791EXTERNALENCA","isEverGreenReq":"0","jobFamilyId":"JOB_FAMILY_INTERNSHIP_PROGRAMS","jobId":"R-0000152791","country":"Canada","jobCategory":"Rotational Programs | Internships","locale":"en_CA","category":"Rotational Programs | Internships","dateCreated":"2025-12-16T19:47:31.130+0000","supQuestionnarieId":"QUESTIONNAIRE-3-4019","jobTitle":"2026 Summer Project Intern (4 months)","hasSupplementaryQuestionnaire":"yes","multi_location":[{"country":"Canada","cityState":"TORONTO, Ontario","address":"600 QUEENS PLATE DR, TORONTO, ON M9W 0A4, Canada","city":"TORONTO","postalCode":"M9W 0A4","latlong":{"lon":-79.4163,"lat":43.70011},"latitude":"43.70011","stateCountry":"Ontario, Canada","locationId":"CAN-ON-TORONTO","location":"TORONTO, Ontario, Canada","state":"Ontario","cityCountry":"TORONTO, Canada","cityStateCountry":"TORONTO, Ontario, Canada","atsCountry":"Canada","mapQueryLocation":"600 QUEENS PLATE DR, TORONTO, ON M9W 0A4, Canada","longitude":"-79.4163"},{"country":"Canada","cityState":"MONTR\u00C9AL, Quebec","address":"600 RUE JEAN TALON E, MONTR\u00C9AL, QC H2R 3A8, Canada","city":"MONTR\u00C9AL","postalCode":"H2R 3A8","latlong":{"lon":-73.58781,"lat":45.50884},"latitude":"45.50884","stateCountry":"Quebec, Canada","locationId":"CAN-QC-MONTREAL","location":"MONTR\u00C9AL, Quebec, Canada","state":"Quebec","cityCountry":"MONTR\u00C9AL, Canada","cityStateCountry":"MONTR\u00C9AL, Quebec, Canada","atsCountry":"Canada","mapQueryLocation":"600 RUE JEAN TALON E, MONTR\u00C9AL, QC H2R 3A8, Canada","longitude":"-73.58781"}],"hasSecondaryQuestionnaire":"yes","multi_category":[{"primaryLocaleCategory":"Rotational Programs | Internships","internalCategoryId":"RBCAA0088_Rotational_Programs_Internships","category_raw":"Internship and Rotational Program","category":"Rotational Programs | Internships"}],"secondaryQuestionnaireId":"QUESTIONNAIRE_EARLY_TALENT_APPLICATION_QUESTIONS_CANADA","atsCountry":"Canada"},"mcsProfileData":{},"apTxnId":"fd5a86c0-023e-4853-8c5c-10536e584950","flowNum":1,"jobLocation":"600 QUEENS PLATE DR, TORONTO, ON M9W 0A4, Canada","jobCategory":"Rotational Programs | Internships","jobCountry":"Canada","channelType":"careerSite","redirectUri":"https://rbc.wd3.myworkdayjobs.com/RBCEARLYTALENT1/login","applyAtsSource":"WORKDAY","applyATS":"WORKDAY","isMultiATS":"false","jsTemplate":"<script type=\\\"text\\/javascript\\\">var jobSource = \\\"\\\"<\\/script><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/csrfToken.js'><\\/script><link href='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/css\\/apply\\/common.css?v=1' rel='stylesheet'><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/ApplyCommon.js?v=1'><\\/script> <script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/applyWithLinkedin.js?v=1'><\\/script><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/browserDetection.js'><\\/script>\\n<script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/applyStudioBundles\\/apply\\/V3\\/APPLY_form_renderer.js'><\\/script>\\n<!--<script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/RBCAA0088\\/renderer\\/APPLY_form_renderer.js'><\\/script>-->\\n\\n<link rel=\\\"stylesheet\\\" href=\\\"https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/RBCAA0088\\/css\\/apply\\/style.css\\\">\\n<link rel=\\\"stylesheet\\\" href=\\\"https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/css\\/apply\\/react-datepicker.min.css\\\">\\n\\n<style>\\nlegend {\\ndisplay: none !important;\\n}\\n.apply-page .phenom-form-container .overlaybg .widget-loader {\\n    display: block;\\n        position: absolute;    \\n    top: 50%;\\n    right: 0;\\n    bottom: 0;\\n        margin: 0 auto;\\n    text-align: center;\\n}\\n\\n.apply-page .phenom-form-container .overlaybg {\\n    display: block;\\n}\\n.modal-footer{\\n\\tdisplay: none;\\n}\\n<\\/style><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/csrfToken.js'><\\/script><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/proxy-apply.js'><\\/script>","atsSpecificData":{"clientName":"RBC","clientURL":"https://jobs.rbc.com","resumeFileSizeErrMsg":"Please choose file less than 2 MB","resumeFileTypesErrMsg":"Please choose a file type from doc, docx, pdf, html or txt.","isparseFromDB":true,"isCloudeOptionsToHide":false,"isAuthorizationRequired":false,"isEmailCheckRequired":false,"jobExpiredMessage":"Sorry, job has expired.","loginCaseSensitive":false,"loginMessage":"Enter Email Address ","refNum":"RBCAA0088","parentRefNum":"RBCAA0088","resumeFileSize":2,"qApplyRobotUrl":"","resumeFileTypes":" doc, docx, pdf, html or txt","tankyouMessage":"Your application is processing. Your information will be input into our system within the next 24 hours. You will receive a confirmation e-mail when your application has successfully been entered.","userAlreadyExistsMessage":"Email Address already exists","userNotFoundMessgae":"Invalid Email Address / Password","passwordEnCrypt":true,"jsqInResponseBody":true,"enableStickinessInLoadBalance":true,"language":"en_us","isLoginRequired":false,"ATSRedirectInternalURL":"","localeMappings":{"en_ca":"en_US","fr_ca":"fr_CA"},"thankYouEmailParams":{"tokens":["firstName","lastName"],"templateName":{"en_ca":"JTC_SUCCESS_EN_CA","fr_ca":"JTC_SUCCESS_FR_CA"},"emailSubject":{"en_ca":"Join Talent Community Subscription","fr_ca":"Rejoindre l'abonnement \u00E0 la communaut\u00E9 des talents"},"fromName":"RBC","senderEmailId":"noreply@recruiting.rbc.com"},"emailSendByUsingSendGrid":true,"applicationCheckMinCount":13,"applicationCheckMaxCount":10000,"applicationCheckDay":365,"imageBasePath":"https://cdn-prod-static.phenompeople.com/CareerConnectResources","applyTimeoutTime":1768113642949,"applyMaintenance":"false","applyTimeoutCount":1,"applyRequestTimeout":28000,"applyTimeoutMaxCount":10,"applyHoldMinuteTime":10,"applyMinuteTime":5,"applyMaintenanceText":"We are currently performing system maintenance in an effort to better serve your job needs. We expect to return ASAP. We appreciate your patience and apologize for the inconvenience.","cloudOptionSettings":{"linkedIn":{"client_id":"785pwjvzfm2zka","integration_context":"urn:li:organization:1808"},"liContextCreatedDate":1675100611611},"phenomParser":true,"csrfTokenEnabled":true,"applyGetReferencesUrl":"https://pie-nifi-rest-api.phenompro.com/getReferences","studioApplyRobotUrl":"https://pie-nifi-rest-api.phenompro.com/nifi-apply-flows-load-test/","apiDetails":{"scanFile":"http://apply-clamav.prod.phenom.local/scan/"},"hasVirusScanEnabled":true},"js_env":"PROD","rdcData":{"enabled":false},"cloud_provider":"AWS"},"jsTemplate":"<script type=\\\"text\\/javascript\\\">var jobSource = \\\"\\\"<\\/script><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/csrfToken.js'><\\/script><link href='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/css\\/apply\\/common.css?v=1' rel='stylesheet'><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/ApplyCommon.js?v=1'><\\/script> <script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/applyWithLinkedin.js?v=1'><\\/script><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/browserDetection.js'><\\/script>\\n<script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/applyStudioBundles\\/apply\\/V3\\/APPLY_form_renderer.js'><\\/script>\\n<!--<script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/RBCAA0088\\/renderer\\/APPLY_form_renderer.js'><\\/script>-->\\n\\n<link rel=\\\"stylesheet\\\" href=\\\"https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/RBCAA0088\\/css\\/apply\\/style.css\\\">\\n<link rel=\\\"stylesheet\\\" href=\\\"https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/css\\/apply\\/react-datepicker.min.css\\\">\\n\\n<style>\\nlegend {\\ndisplay: none !important;\\n}\\n.apply-page .phenom-form-container .overlaybg .widget-loader {\\n    display: block;\\n        position: absolute;    \\n    top: 50%;\\n    right: 0;\\n    bottom: 0;\\n        margin: 0 auto;\\n    text-align: center;\\n}\\n\\n.apply-page .phenom-form-container .overlaybg {\\n    display: block;\\n}\\n.modal-footer{\\n\\tdisplay: none;\\n}\\n<\\/style><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/csrfToken.js'><\\/script><script type='text\\/javascript' src='https:\\/\\/cdn-prod-static.phenompeople.com\\/CareerConnectResources\\/COMMON\\/js\\/apply\\/proxy-apply.js'><\\/script>","token":""},"flashParams":{}}; phApp.experimentData = {}; phApp.inlinePreview = false;phApp.pxSegmentState = 'stranger';phApp.pxPageState = 'stranger';phApp.eagerLoadDDOs = ["apply","siteConfig","getRegionLocales","jobCartV2"];; phApp.sessionParams = {"pxSegmentState":"stranger","csrfToken":"569082982aad4c9b9fe5f48cd1658570","phProfileId":"a765e144-0ca3-4ebe-b38c-ac08fc7817b7","pxPageState":"stranger","jdsource":""}; /*-->*/ </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="apply-page apply" data-ph-id="ph-page-element-page88-HaHGDR" key-class="applyPageBodyClassName" style="visibility: visible;">
+
+<div class="ph-page" data-ph-id="ph-page-element-page88-7ah90A" id="main-content" key-class="applyContentClassName" role="main" style="" tabindex="0">
+<div class="body-wrapper ph-page-container" data-ph-id="ph-page-element-page88-AczBZU">
+
+
+<div class="ph-apply-box" data-ph-id="ph-page-element-page88-2tmEdN"><div class="phenom-form-container"><div class="form-wrapper widget-container"><div class="external-job current-step-personalInformation"><div class=""><div class="resume-section"><div class="options-block resume-group"><div aria-labelledby="cloud-options-sr-text" class="cloud-options" role="group"><div class="resume_info"><div><div class="resume-header"><p>To make applying fast and easy, we don’t require a cover letter. Your resume has all the info we need. If you still prefer to submit a cover letter as well, you can upload it before you submit your application.</p><p>Uploading your resume here will result in the system parsing this into the required fields in the job application. </p></div></div></div><div class="drives"><div class="resume-upload-wrapper"><button atm-id="resume-button" class="upload-resume-btn btn primary-button" tabindex="0" type="button">Upload resume</button></div></div></div></div><div class="has-resume resume-info"><div class="pdf after-upload"><a aria-label="Download resume.pdf" atm-id="uploadedresume-link" class="downloadFile" download="resume.pdf" href="https://jobs.rbc.com/ca/en/fileDownload?dk=applyFileDownload&amp;fileName=resume.pdf&amp;uploadedFileName=resume_2791b2i0a0d9b8.pdf" tabindex="0">resume.pdf</a></div></div></div></div></div></div><style>.overlaybg {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.6);
+        z-index: 100;
+      }
+      .widget-loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        margin: 0 auto;
+        text-align: center;
+        background-color: rgba(255,255,255,0);
+        width: 40px;
+        height: 40px;
+        margin-left: -17px;
+        transform: translate(-50%, -50%);
+      }
+      .cloud-icon {
+        display: inline-block;
+        margin: 0 15px;
+        float: none;
+        width: auto;
+        vertical-align: top;
+        font-size: 0;
+        width: 40px;
+        height: 40px;
+      }
+      
+      .dropbox {
+        background-image: url(https://assets.phenompeople.com/CareerConnectResources/q/ADCLUS/en_us/desktop/assets/images/dropbox_square.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        cursor: pointer;
+      }
+      
+      .skydrive {
+        background-image: url(https://assets.phenompeople.com/CareerConnectResources/q/ADCLUS/en_us/desktop/assets/images/SkyDrive.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        cursor: pointer;
+      }
+
+      .indeed {
+        background-image: url(https://assets.phenompeople.com/CareerConnectResources/pp/RANEUK/en_uk/desktop/assets/images/indeed.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        cursor: pointer;
+      }
+
+      .xing {
+        background-image: url(https://assets.phenompeople.com/CareerConnectResources/pp/PHENA0059/en_us/desktop/assets/images/xing.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        cursor: pointer;
+      }
+      
+      .after-upload {
+        padding-left: 40px;
+        min-height: 46px;
+        padding-top: 4px;
+        background-image: url(https://cdn-prod-static.phenompeople.com/CareerConnectResources/COMMON/images/uploadicons.png);
+        background-repeat: no-repeat;
+        color: #404040;
+      }
+      .docx{
+        background-position: 0 -65px;
+        margin-top: 20px;
+      }
+      .pdf {
+        background-position: 0 -120px;
+      }
+      .doc {
+        background-position: 0 -10px;
+      }
+      .txt {
+        background-position: 0 -174px;
+      }
+      .rtf {
+        background-position: 0 -228px;
+      }
+      
+      .jpeg, .jpg, .png {
+        background-position: 0 -278px;
+      }      
+      
+      .overlaybg {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.6);
+        z-index: 100;
+      }
+      .widget-loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        margin: 0 auto;
+        text-align: center;
+        background-color: rgba(255,255,255,0);
+        width: 40px;
+        height: 40px;
+        margin-left: -17px;
+      }
+      
+      .rbt-menu {
+        margin-bottom: 2px;
+      }
+      
+      .rbt-menu > li a {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #888 !important;
+      }
+      
+      .rbt-menu > li a:focus {
+        outline: none;
+      }
+
+      .dropdown-menu>a {
+                display: block;
+                padding: 3px 20px;
+                clear: both;
+                font-weight: normal;
+                line-height: 1.42857143;
+                color: #333;
+                white-space: nowrap;
+            }
+
+              .rbt-menu > a {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: #888 !important;
+                text-decoration:none;
+              }
+
+              .rbt-menu > a:focus {
+                outline: none;
+              }
+
+              .dropdown-menu>a:hover, .dropdown-menu>a:focus {
+                text-decoration: none;
+                background-color: #f5f5f5;
+            }
+      
+      .rbt-menu-pagination-option {
+        text-align: center;
+      }
+      
+      .rbt .rbt-input-main::-ms-clear {
+        display: none;
+      }
+      
+      .rbt-input-multi {
+        cursor: text;
+        overflow: hidden;
+        position: relative;
+        height: auto;
+      }
+      
+      .rbt-input-multi.form-control {
+        border-radius: 0px;
+        min-height: 56px;
+        box-shadow: none;
+        border: 1px solid #D8D8D8;
+        background-color: #ffffff;
+        height: auto;
+      }
+      
+      .rbt-input-multi.focus {
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        border-color: #17a9b7;
+        outline: 0;
+      }
+      
+      .rbt-input-multi.form-control[disabled] {
+        background-color: #e9ecef;
+        opacity: 1;
+      }
+      
+      .rbt-input-multi input::-moz-placeholder {
+        color: #999;
+        opacity: 1;
+      }
+      
+      .rbt-input-multi input:-ms-input-placeholder {
+        color: #999;
+      }
+      
+      .rbt-input-multi input::-webkit-input-placeholder {
+        color: #999;
+      }
+      
+      .rbt-input-multi .rbt-input-wrapper {
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -4px;
+        margin-top: -1px;
+        overflow: hidden;
+      }
+      
+      .rbt-input-multi .rbt-input-main {
+        min-height: 20px;
+        margin: 1px 0 4px;
+      }
+      
+      .rbt-input-multi.input-lg .rbt-input-main, .rbt-input-multi.form-control-lg .rbt-input-main {
+        height: 24px;
+      }
+      
+      .rbt-input-multi.input-sm .rbt-input-main, .rbt-input-multi.form-control-sm .rbt-input-main {
+        height: 18px;
+      }
+      
+      .rbt-close {
+        z-index: 1;
+      }
+      
+      .rbt-close-lg {
+        font-size: 24px;
+      }
+      
+      .rbt-token {
+        background-color: #e7f4ff;
+        border: 0;
+        border-radius: 2px;
+        color: #17a9b7;
+        display: inline-block;
+        line-height: 1.8em;
+        margin: 0 3px 3px 0;
+        padding: 4px 7px;
+        position: relative;
+      }
+      
+      .rbt-token-disabled {
+        background-color: #ddd;
+        color: #888;
+        pointer-events: none;
+      }
+      
+      .rbt-token-removeable {
+        cursor: pointer;
+        padding-right: 21px;
+      }
+      
+      .rbt-token-active {
+        background-color: #17a9b7;
+        color: #fff;
+        outline: none;
+        text-decoration: none;
+      }
+      
+      .rbt-token .rbt-token-remove-button {
+        bottom: 0;
+        color: inherit;
+        font-size: inherit;
+        font-weight: normal;
+        opacity: 1;
+        outline: none;
+        padding: 3px 7px;
+        position: absolute;
+        right: 0;
+        text-shadow: none;
+        top: -2px;
+      }
+      
+      .rbt-loader {
+        -moz-animation: loader-animation 600ms infinite linear;
+        -webkit-animation: loader-animation 600ms infinite linear;
+        animation: loader-animation 600ms infinite linear;
+        border: 1px solid #d5d5d5;
+        border-radius: 50%;
+        border-top-color: #17a9b7;
+        display: block;
+        height: 16px;
+        width: 16px;
+      }
+      
+      .rbt-loader-lg {
+        height: 20px;
+        width: 20px;
+      }
+      
+      .rbt-aux {
+        align-items: center;
+        display: flex;
+        bottom: 0;
+        justify-content: center;
+        pointer-events: none;
+        /* Don't block clicks on the input */
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 34px;
+      }
+      
+      .rbt-aux-lg {
+        width: 46px;
+      }
+      
+      .rbt-aux .rbt-close {
+        margin-top: -4px;
+        pointer-events: auto;
+        /* Override pointer-events: none; above */
+      }
+      
+      .has-aux .rbt-input {
+        padding-right: 34px;
+      }
+      
+      .rbt-highlight-text {
+        background-color: inherit;
+        color: inherit;
+        font-weight: bold;
+        padding: 0;
+      }
+      
+      /* Input Groups */
+      .input-group > .rbt {
+        flex: 1;
+      }
+      
+      .input-group > .rbt .rbt-input-hint,
+      .input-group > .rbt .rbt-aux {
+        z-index: 5;
+      }
+      
+      .input-group > .rbt:not(:first-child) .form-control {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      
+      .input-group > .rbt:not(:last-child) .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      /* Validation States */
+      .has-error .rbt-input-multi.focus {
+        border-color: #843534;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+      }
+      
+      .has-warning .rbt-input-multi.focus {
+        border-color: #66512c;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+      }
+      
+      .has-success .rbt-input-multi.focus {
+        border-color: #2b542c;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+      }
+      .range-div {
+        display: flex;
+        justify-content: space-around;
+      } 
+
+      .range-div .range-select {
+        background-image: none !important;
+        background-color: transparent !important;
+        padding-right: 0.5rem !important;
+        -webkit-appearance: button !important;
+        background-repeat: no-repeat;
+        background-position: 98% center;
+        cursor: pointer;
+        min-height: 25px !important;
+        max-height: 25px !important;
+      }
+
+      .maintenance-msg{
+        display: flex;
+        justify-content:center;
+        margin-top:30px;
+        gap: 30px;
+      }
+
+      .maitenance-heading{
+        flex-basis:30%;
+      }
+      .redirect-to-home{
+        background: #29abb9;
+          padding: 10px 16px;
+          border-radius: 4px;
+          text-decoration: none;
+          color: #fff;
+          margin-top: 20px;
+          display: inline-block;
+          font-weight: bold;
+      }
+      .redirect-to-home:hover{
+        color:#fff;
+      }
+      .maintenance-msg .description {
+        width: auto;
+      }
+      .msgDiv{
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      @keyframes loader-animation {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+
+      legend { display : none } 
+      .hidden { display : none }
+
+      .cloud-options-group li.linkedin-option {
+        margin-top: 40px;
+        margin-bottom: 0;
+      }
+      .apply-page .ph-apply-box .options-block .cloud-options .drives .cloud-options-group ul li .awli-2-o
+      {
+        margin-top: 0;
+        margin-right: 10px;
+      }
+      .resume-group .drives li.linkedin-option #applyAwliWidget iframe {
+        height: 50px !important;
+      }
+      .react-datepicker-popper .react-datepicker__aria-live {
+        display: none;
+      }
+      .disability-status-radio .field-radio-group .radio label span{
+        display: flex !important;
+        line-height: 20px !important;
+        align-items: center !important;
+      }
+      .disability-status-radio .field-radio-group .radio label{
+         width: 100% !important;    
+      }
+      .disability-status-radio .control-label{
+        width: 100% !important; 
+        padding-bottom: 8px !important;
+        margin-bottom: 0px !important;
+        font-size: 16px !important;
+        line-height: 30px !important;
+        text-align: left !important;
+      }
+      .disability-status-radio div{
+        width: 100% !important;     
+      }
+      .disability-status-radio .field-radio-group .radio label span .radio-text{
+        font-size: 14px !important;
+        line-height: 20px !important;
+      }
+      .disability-status-radio .field-radio-group .radio label span input[type="radio"]{
+        height: 13px !important;
+        min-height: 13px !important;
+        margin: 0 6px 0px 0 !important;
+        padding: 0 !important;
+        position: unset !important;
+        width: 13px !important;
+      }
+      .disability-status-radio label{
+        display: flex !important;
+        justify-content: flex-start !important;
+        width: 90% !important;
+      }
+      .disability-status-radio .text-danger{
+        padding-left: 35px;
+      }
+
+
+
+      // .IN-Awli-widget{
+      //   display: none;
+      // }
+
+      @media only screen and (max-width: 640px){
+        .cloud-options-group li.linkedin-option {
+            width: 100% !important;
+            display: flex;
+            justify-content: center;
+        }
+        .resume-group .drives .cloud-options-group ul{
+          flex-wrap: wrap;
+        }
+      }
+
+      </style></div></div>
+</div>
+</div>
+
+
+
+
+  
+
+<!--<script type='text/javascript' src='https://cdn-prod-static.phenompeople.com/CareerConnectResources/RBCAA0088/renderer/APPLY_form_renderer.js'></script>-->
+
+
+
+
+</body></html>
