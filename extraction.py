@@ -16,6 +16,9 @@ import json
 import os
 
 def extract_info(html):
+    return [html]
+
+def extract_info_legacy(html):
     soup = BeautifulSoup(html, "html.parser")
 
     # ---------------------------
