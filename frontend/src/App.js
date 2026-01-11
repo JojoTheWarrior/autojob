@@ -14,11 +14,11 @@ export default function App() {
   const [backendUrl, setBackendUrl] = useState("");
   const [started, setStarted] = useState(false);
 
-  const [actorDisplay, setActorDisplay] = useState([
-    { ts: "", text: ">> Awaiting uplink... establishing signal...\n" },
-  ]);
   const [criticDisplay, setCriticDisplay] = useState([
     { text: ">> Critic module standby...\n" },
+  ]);
+  const [actorDisplay, setActorDisplay] = useState([
+    { ts: "", text: ">> Awaiting uplink... establishing signal...\n" },
   ]);
 
   // Track if currently typing for visual caret
@@ -265,10 +265,33 @@ export default function App() {
       <div className="main-layout">
         {/* Split Terminals */}
         <div className="split-terminals">
+          {/* CRITIC */}
+          <div className="terminal critic">
+            <div className="terminal-header">
+              CRITIC
+              <span className="status-indicator">
+                <span className="status-dot" />
+                {isCriticTyping ? "ANALYZING" : "STANDBY"}
+              </span>
+            </div>
+            <div className="terminal-body">
+              {criticDisplay.map((line, idx) => (
+                <div key={idx} className="line">
+                  {line.text}
+                </div>
+              ))}
+              {isCriticTyping && <span className="typing-caret" />}
+              <div ref={criticEndRef} />
+            </div>
+          </div>
+          
+          {/* Animated Divider */}
+          <div className="terminal-divider" />
+
           {/* ACTOR */}
           <div className="terminal actor">
             <div className="terminal-header">
-              CRITIC
+              ACTOR
               <span className="status-indicator">
                 <span className="status-dot" />
                 {isActorTyping ? "PROCESSING" : "READY"}
@@ -285,29 +308,6 @@ export default function App() {
               ))}
               {isActorTyping && <span className="typing-caret" />}
               <div ref={actorEndRef} />
-            </div>
-          </div>
-
-          {/* Animated Divider */}
-          <div className="terminal-divider" />
-
-          {/* CRITIC */}
-          <div className="terminal critic">
-            <div className="terminal-header">
-              ACTOR
-              <span className="status-indicator">
-                <span className="status-dot" />
-                {isCriticTyping ? "ANALYZING" : "STANDBY"}
-              </span>
-            </div>
-            <div className="terminal-body">
-              {criticDisplay.map((line, idx) => (
-                <div key={idx} className="line">
-                  {line.text}
-                </div>
-              ))}
-              {isCriticTyping && <span className="typing-caret" />}
-              <div ref={criticEndRef} />
             </div>
           </div>
         </div>
