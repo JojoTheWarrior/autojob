@@ -242,7 +242,8 @@ def startApp(url):
 
                 print(cmds)
 
-                critic_bullshit += cmds
+                for cmd in cmds.split("\n"):
+                    critic_bullshit.append(cmd)
 
                 try:
                     exec(cmds)

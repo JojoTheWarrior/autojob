@@ -6,7 +6,7 @@ body {
   margin: 0;
   background: #020202;
   color: white;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Courier New", monospace;
 }
 
 .app {
@@ -17,7 +17,7 @@ body {
 }
 
 /* =========================
-   Boot Terminal (Initial)
+   Boot Terminal
    ========================= */
 
 .boot-terminal {
@@ -62,7 +62,7 @@ body {
   }
 }
 
-/* When started, boot terminal shrinks upward */
+/* Collapse boot terminal */
 .app.started .boot-terminal {
   height: 0;
   padding: 0;
@@ -80,14 +80,13 @@ body {
   display: flex;
   flex-direction: column;
   opacity: 0;
-  transform: scale(0.98);
+  transform: translateY(12px) scale(0.98);
   transition: all 0.9s ease;
 }
 
-/* Reveal when started */
 .app.started .split-terminals {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0) scale(1);
 }
 
 .terminal {
@@ -97,25 +96,44 @@ body {
   border-top: 1px solid #111;
 }
 
-/* Headers */
-
 .terminal-header {
   padding: 6px 12px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   letter-spacing: 2px;
-  opacity: 0.85;
+  opacity: 0.9;
 }
-
-/* Bodies */
 
 .terminal-body {
   flex: 1;
   padding: 14px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   overflow-y: auto;
+  line-height: 1.4;
 }
 
-/* Actor Styling */
+.line {
+  white-space: pre-wrap;
+}
+
+/* Timestamp */
+.timestamp {
+  opacity: 0.6;
+  margin-right: 6px;
+}
+
+/* Caret while typing */
+.typing-caret {
+  display: inline-block;
+  width: 8px;
+  height: 1rem;
+  margin-left: 3px;
+  background: currentColor;
+  animation: blink 1s step-start infinite;
+}
+
+/* =========================
+   Actor Styling
+   ========================= */
 
 .terminal.actor {
   background: #071a2e;
@@ -127,7 +145,9 @@ body {
   color: #ffd54d;
 }
 
-/* Critic Styling */
+/* =========================
+   Critic Styling
+   ========================= */
 
 .terminal.critic {
   background: #020a04;
@@ -138,3 +158,28 @@ body {
   background: #051507;
   color: #ff4d4d;
 }
+
+/* =========================
+   Optional: Pixel Font
+   ========================= */
+/*
+To get true 16-bit vibes:
+
+1. Download a font like:
+   - "VT323"
+   - "Press Start 2P"
+   - "PxPlus IBM VGA9"
+
+2. Put it in /public/fonts
+
+3. Add:
+
+@font-face {
+  font-family: "Pixel";
+  src: url("/fonts/VT323.ttf");
+}
+
+body {
+  font-family: "Pixel", monospace;
+}
+*/
