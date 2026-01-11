@@ -1,0 +1,106 @@
+{
+  "personal_information": {
+    "legal_name": {
+      "first_name": "Michael",
+      "middle_name": "Joseph",
+      "last_name": "Afton",
+      "prefix": "Mr"
+    },
+    "preferred_name": {
+      "first_name": "Mike",
+      "last_name": "Schmidt"
+    },
+    "date_of_birth": "1994-11-08"
+  },
+  "contact_information": {
+    "address": {
+      "street": "123 Mulberry Street",
+      "city": "Hurricane",
+      "province": "Utah",
+      "country": "United States",
+      "postal_code": "84737"
+    },
+    "email": "mike.afton@gmail.com",
+    "phone": {
+      "device_type": "Mobile",
+      "country_code": "USA (+1)",
+      "phone_number": "435-555-0101"
+    }
+  },
+  "residence_status": {
+    "citizenships": "United States Citizen",
+    "visa_status": "Canadian visa",
+    "sponsorship": "No"
+  },
+  "diversity": {
+    "sex": "Male",
+    "identity": "Man",
+    "lgbtq": "No",
+    "disability": "No",
+    "race": "Caucasian"
+  },
+  "work_experience": [
+    {
+      "job_title": "Night Security Guard",
+      "company": "Freddy Fazbear's Pizza",
+      "location": "Hurricane, Utah",
+      "start_date": "2023-11",
+      "end_date": "Present",
+      "description": "Monitored facility security systems, maintained animatronic equipment, and managed power consumption for facility operations."
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "is_fluent": "Yes",
+      "proficiency": {
+        "comprehension": "fluent",
+        "reading": "fluent",
+        "speaking": "fluent",
+        "writing": "fluent"
+      }
+    }
+  ],
+  "education": [
+    {
+      "university": "University of Utah",
+      "faculty": "Engineering",
+      "major": "Mechanical Engineering",
+      "degree_type": "Bachelor of Applied Science",
+      "start_date": "2012-09",
+      "end_date": "2016-05",
+      "gpa": "3.8",
+      "current_year": "Graduated"
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Python",
+      "C++",
+      "Assembly"
+    ],
+    "web_technologies": [
+      "HTML",
+      "CSS"
+    ],
+    "data_science": [],
+    "frameworks_tools": [
+      "Arduino",
+      "Raspberry PI",
+      "AutoCAD"
+    ],
+    "operating_systems": [
+      "Windows",
+      "Linux"
+    ]
+  },
+  "socials": {
+    "website": "https://michaelafton.com",
+    "linkedin": "https://linkedin.com/in/michael-afton-test",
+    "github": "https://github.com/mafton"
+  },
+  "application_preferences": {
+    "how_did_you_hear_about_us": "Newspaper Ad",
+    "has_worked_for_company_before": "No"
+  }
+}
