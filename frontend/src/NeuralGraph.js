@@ -62,16 +62,15 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
   const animationRef = useRef(null);
   const wsRef = useRef(null);
   const searchStateRef = useRef({
-    isSearching: false,
+    isSearching: true,  // START searching by default
     targetNode: null,
     searchProgress: 0,
     activatedNodes: new Set(),
     pulseNodes: [],
+    startTime: Date.now(),
   });
 
   const [highlightedWord, setHighlightedWord] = useState(null);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const lastUpdateRef = useRef({ actor: 0, critic: 0 });
   const triggerFnRef = useRef(null); // Ref to hold trigger function for WebSocket
 
   // Initialize nodes with positions
@@ -118,45 +117,8 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
       }
     }
     connectionsRef.current = connections;
-  }, []);
-
-  // Trigger search animation when actor/critic updates (fallback if WebSocket fails)
-  useEffect(() => {
-    const actorLen = actorLines?.length || 0;
-    const criticLen = criticLines?.length || 0;
-
-    if (
-      actorLen > lastUpdateRef.current.actor ||
-      criticLen > lastUpdateRef.current.critic
-    ) {
-      lastUpdateRef.current = { actor: actorLen, critic: criticLen };
-      // Only trigger if WebSocket hasn't already triggered
-      // We'll rely on WebSocket primarily now
-    }
-  }, [actorLines, criticLines]);
-
-  // Also trigger when isSearching prop changes
-  useEffect(() => {
-    if (isSearching && !isAnimating) {
-      // Only trigger if WebSocket hasn't already triggered
-    }
-  }, [isSearching]);
-
-  // New function: trigger animation with a specific word from WebSocket
-  const triggerSearchAnimationWithWord = useCallback((word) => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-
-    // Reset all nodes first
-    nodesRef.current.forEach((node) => {
-      node.highlighted = false;
-      node.currentSize = node.baseSize;
-      node.alpha = 0.4;
-    });
-
-    setHighlightedWord(null);
-
-    // Start search state
+    
+    // Start the searching animation immediately
     searchStateRef.current = {
       isSearching: true,
       targetNode: null,
@@ -164,10 +126,26 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
       activatedNodes: new Set(),
       pulseNodes: [],
       startTime: Date.now(),
-      tempNodeId: null,
     };
+  }, []);
 
-    // Check if this word already exists in nodes
+  // Function to highlight a word (called when WebSocket receives a word)
+  // This STOPS searching, highlights the word, then resumes after 0.5s
+  const highlightWord = useCallback((word) => {
+    console.log("Highlighting word:", word);
+    
+    // Clear any previous temporary nodes
+    nodesRef.current = nodesRef.current.filter((n) => !n.isTemporary);
+    connectionsRef.current = connectionsRef.current.filter((c) => !c.isTemporary);
+    
+    // Reset all node highlighting
+    nodesRef.current.forEach((node) => {
+      node.highlighted = false;
+      node.currentSize = node.baseSize;
+      node.alpha = 0.6;
+    });
+
+    // Find or create the target node
     let targetNode = nodesRef.current.find(
       (node) => node.label.toLowerCase() === word.toLowerCase()
     );
@@ -187,7 +165,7 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
         vy: 0,
         baseSize: 16,
         currentSize: 16,
-        alpha: 0.4,
+        alpha: 0.6,
         highlighted: false,
         isTemporary: true,
       };
@@ -208,21 +186,48 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
       }
 
       targetNode = tempNode;
-      searchStateRef.current.tempNodeId = tempNode.id;
     }
 
-    searchStateRef.current.targetNode = targetNode;
+    // STOP searching - highlight the word
+    searchStateRef.current.isSearching = false;
+    targetNode.highlighted = true;
+    targetNode.currentSize = targetNode.baseSize * 2;
+    targetNode.alpha = 1;
+    targetNode.bouncePhase = 0;
+    
+    setHighlightedWord(targetNode.label);
 
-    // After 3 seconds, complete the search
+    // After 0.5 seconds, resume searching
     setTimeout(() => {
-      completeSearch(targetNode);
-    }, 3000);
-  }, [isAnimating]);
+      // Reset highlighting
+      targetNode.highlighted = false;
+      targetNode.currentSize = targetNode.baseSize;
+      targetNode.alpha = 0.6;
+      
+      // Remove temporary node if it was one
+      if (targetNode.isTemporary) {
+        nodesRef.current = nodesRef.current.filter((n) => !n.isTemporary);
+        connectionsRef.current = connectionsRef.current.filter((c) => !c.isTemporary);
+      }
+      
+      // Resume searching animation
+      searchStateRef.current = {
+        isSearching: true,
+        targetNode: null,
+        searchProgress: 0,
+        activatedNodes: new Set(),
+        pulseNodes: [],
+        startTime: Date.now(),
+      };
+      
+      setHighlightedWord(null);
+    }, 500);
+  }, []);
 
   // Keep the ref updated so WebSocket can call it
   useEffect(() => {
-    triggerFnRef.current = triggerSearchAnimationWithWord;
-  }, [triggerSearchAnimationWithWord]);
+    triggerFnRef.current = highlightWord;
+  }, [highlightWord]);
 
   // Initialize WebSocket connection
   useEffect(() => {
@@ -276,130 +281,6 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
     };
   }, []);
 
-  // Original trigger function - now uses fetch as fallback
-  const triggerSearchAnimation = useCallback(async () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-
-    // Reset all nodes first
-    nodesRef.current.forEach((node) => {
-      node.highlighted = false;
-      node.currentSize = node.baseSize;
-      node.alpha = 0.4;
-    });
-
-    setHighlightedWord(null);
-
-    // Start search state
-    searchStateRef.current = {
-      isSearching: true,
-      targetNode: null,
-      searchProgress: 0,
-      activatedNodes: new Set(),
-      pulseNodes: [],
-      startTime: Date.now(),
-      tempNodeId: null,
-    };
-
-    try {
-      // Fetch similar word from backend
-      const response = await fetch("http://localhost:8000/similar", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      
-      const data = await response.json();
-      const similarWord = typeof data === "string" ? data : (data.word || data.similar || data.result || "Unknown");
-
-      // Check if this word already exists in nodes
-      let targetNode = nodesRef.current.find(
-        (node) => node.label.toLowerCase() === similarWord.toLowerCase()
-      );
-
-      if (!targetNode) {
-        // Create a temporary node for this word
-        const canvas = canvasRef.current;
-        const centerX = canvas ? canvas.width / 2 : 200;
-        const centerY = canvas ? canvas.height / 2 : 150;
-        
-        const tempNode = {
-          id: `temp_${Date.now()}`,
-          label: similarWord,
-          x: centerX + (Math.random() - 0.5) * 100,
-          y: centerY + (Math.random() - 0.5) * 100,
-          vx: 0,
-          vy: 0,
-          baseSize: 16,
-          currentSize: 16,
-          alpha: 0.4,
-          highlighted: false,
-          isTemporary: true,
-        };
-
-        nodesRef.current.push(tempNode);
-        
-        // Add connections to the temp node
-        const tempNodeIdx = nodesRef.current.length - 1;
-        for (let i = 0; i < 3; i++) {
-          const randomTarget = Math.floor(Math.random() * (nodesRef.current.length - 1));
-          connectionsRef.current.push({
-            from: tempNodeIdx,
-            to: randomTarget,
-            alpha: 0.1,
-            active: false,
-            isTemporary: true,
-          });
-        }
-
-        targetNode = tempNode;
-        searchStateRef.current.tempNodeId = tempNode.id;
-      }
-
-      searchStateRef.current.targetNode = targetNode;
-
-      // After 3 seconds, complete the search
-      setTimeout(() => {
-        completeSearch(targetNode);
-      }, 3000);
-
-    } catch (err) {
-      console.error("Failed to fetch similar word:", err);
-      
-      // Fallback to random node if fetch fails
-      const targetIdx = Math.floor(Math.random() * nodesRef.current.length);
-      const targetNode = nodesRef.current[targetIdx];
-      searchStateRef.current.targetNode = targetNode;
-
-      setTimeout(() => {
-        completeSearch(targetNode);
-      }, 3000);
-    }
-  }, [isAnimating]);
-
-  const completeSearch = (targetNode) => {
-    searchStateRef.current.isSearching = false;
-    targetNode.highlighted = true;
-    targetNode.currentSize = targetNode.baseSize * 2;
-    targetNode.alpha = 1;
-
-    setHighlightedWord(targetNode.label);
-
-    // Bounce animation
-    targetNode.bouncePhase = 0;
-
-    // Reset animation state after bounce, and clean up temp node
-    setTimeout(() => {
-      // Remove temporary node and its connections
-      if (targetNode.isTemporary) {
-        nodesRef.current = nodesRef.current.filter((n) => !n.isTemporary);
-        connectionsRef.current = connectionsRef.current.filter((c) => !c.isTemporary);
-      }
-      setIsAnimating(false);
-    }, 1000);
-  };
-
   // Main animation loop
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -417,7 +298,8 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
       const state = searchStateRef.current;
       const isSearching = state.isSearching;
       const elapsed = Date.now() - (state.startTime || Date.now());
-      const progress = Math.min(elapsed / 3000, 1);
+      // Use modulo to loop the animation continuously (every 3 seconds)
+      const progress = (elapsed % 3000) / 3000;
 
       // Update node positions (gentle floating)
       nodesRef.current.forEach((node, idx) => {
@@ -566,12 +448,12 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
         ctx.globalAlpha = 1;
       });
 
-      // Draw "SEARCHING..." or "FOUND: X" text
+      // Draw "SEARCHING..." or "MATCHED: X" text
       if (isSearching) {
         ctx.font = "14px 'Courier New', monospace";
         ctx.fillStyle = "#00ff66";
         ctx.textAlign = "center";
-        ctx.fillText(`SEARCHING... ${Math.floor(progress * 100)}%`, centerX, height - 20);
+        ctx.fillText(`SEARCHING...`, centerX, height - 20);
       } else if (highlightedWord) {
         ctx.font = "14px 'Courier New', monospace";
         ctx.fillStyle = "#ffd700";
@@ -595,8 +477,8 @@ export default function NeuralGraph({ actorLines, criticLines, isSearching }) {
     <div className="neural-graph-container">
       <div className="neural-graph-header">
         <span className="neural-title">NEURAL MATCHER</span>
-        <span className={`neural-status ${isAnimating ? "active" : ""}`}>
-          {isAnimating ? "● PROCESSING" : "○ IDLE"}
+        <span className={`neural-status ${highlightedWord ? "" : "active"}`}>
+          {highlightedWord ? `● MATCHED` : "○ SEARCHING"}
         </span>
       </div>
       <canvas

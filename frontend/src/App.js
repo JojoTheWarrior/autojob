@@ -8,7 +8,6 @@ import NeuralGraph from "./NeuralGraph";
 let actor_lines = [];
 let critic_lines = [];
 
-const POLL_INTERVAL = 500;     // ms
 const TYPE_INTERVAL = 18;      // ms per character (slightly faster for snappier feel)
 
 export default function App() {
@@ -62,51 +61,75 @@ export default function App() {
 
   /**
    * -----------------------------
-   * Poll actor + critic endpoints
+   * WebSocket connection for actor + critic data
    * -----------------------------
    */
   useEffect(() => {
     if (!started) return;
 
-    const poll = async () => {
-      try {
-        const [actorRes, criticRes] = await Promise.all([
-          fetch("http://localhost:8000/get_actor"),
-          fetch("http://localhost:8000/get_critic"),
-        ]);
-
-        const actorData = await actorRes.json();
-        const criticData = await criticRes.json();
-
-        // ACTOR: list of [timestamp, text]
-        if (actorData.length > actor_lines.length) {
-          const newItems = actorData.slice(actor_lines.length);
-          actor_lines = actorData;
-          setActorLineCount(actorData.length);
-
-          newItems.forEach(([ts, text]) => {
-            actorQueue.current.push({ ts, text });
-          });
+    const connectWebSocket = () => {
+      const ws = new WebSocket("ws://localhost:8000/ws");
+      
+      ws.onopen = () => {
+        console.log("App.js WebSocket connected");
+      };
+      
+      ws.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          
+          // Handle actor updates
+          if (data.type === "actor" && data.lines) {
+            const newItems = data.lines.slice(actor_lines.length);
+            actor_lines = data.lines;
+            setActorLineCount(data.lines.length);
+            
+            newItems.forEach(([ts, text]) => {
+              actorQueue.current.push({ ts, text });
+            });
+          }
+          
+          // Handle critic updates
+          if (data.type === "critic" && data.lines) {
+            const newItems = data.lines.slice(critic_lines.length);
+            critic_lines = data.lines;
+            setCriticLineCount(data.lines.length);
+            
+            newItems.forEach((line) => {
+              criticQueue.current.push(line);
+            });
+          }
+          
+          // Handle individual actor line (alternative format)
+          if (data.type === "actor_line" && data.ts && data.text) {
+            actorQueue.current.push({ ts: data.ts, text: data.text });
+            setActorLineCount(prev => prev + 1);
+          }
+          
+          // Handle individual critic line (alternative format)
+          if (data.type === "critic_line" && data.line) {
+            criticQueue.current.push(data.line);
+            setCriticLineCount(prev => prev + 1);
+          }
+        } catch (e) {
+          // Ignore non-JSON messages (handled by NeuralGraph)
         }
-
-        // CRITIC: list of strings
-        if (criticData.length > critic_lines.length) {
-          const newItems = criticData.slice(critic_lines.length);
-          critic_lines = criticData;
-          setCriticLineCount(criticData.length);
-
-          newItems.forEach((line) => {
-            criticQueue.current.push(line);
-          });
-        }
-      } catch (err) {
-        console.error("Polling error", err);
-      }
+      };
+      
+      ws.onclose = () => {
+        console.log("App.js WebSocket disconnected, reconnecting...");
+        setTimeout(connectWebSocket, 3000);
+      };
+      
+      ws.onerror = (error) => {
+        console.error("App.js WebSocket error:", error);
+      };
+      
+      return ws;
     };
 
-    poll();
-    const id = setInterval(poll, POLL_INTERVAL);
-    return () => clearInterval(id);
+    const ws = connectWebSocket();
+    return () => ws?.close();
   }, [started]);
 
   /**
