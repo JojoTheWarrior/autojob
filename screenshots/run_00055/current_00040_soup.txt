@@ -1,0 +1,26 @@
+<html dir="ltr" lang="en"><body style='--custom-link-color:#3d74cc;--custom-active-field-color:#709ce2;--custom-focus-color:#709ce2;--custom-list-hover-color:#d5e2f6;--custom-primary-typography-color:#3d74cc;--custom-button-color:#578bdd;--custom-button-hover-color:#709ce2;--custom-button-text-color:#000000;--custom-primary-font-family:"Untitled Sans";--custom-secondary-font-family:"Untitled Sans";--custom-dropdown-selection-color:#c4d6f3;--custom-secondary-typography-color:#262626;--custom-secondary-typography-10:#2626261A;--custom-secondary-typography-30:#2626264D;--custom-secondary-typography-60:#26262699;--custom-background-color:#ffffff'><main class="main font-secondary job-post"><div class="job-post-container"><div><div class="job__description body"><div>
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+<li data-aria-level="1" data-aria-posinset="7" data-font="Symbol" data-leveltext="" data-list-defn-props='{"335552541":1,"335559685":720,"335559991":360,"469769226":"Symbol","469769242":[8226],"469777803":"left","469777804":"","469777815":"hybridMultilevel"}' data-listid="7"><span data-contrast="none">A rising junior or senior in a U.S. college/university bachelor’s degree program</span></li>
+
+
+
+</ul>
+
+
+
+
+
+
+
+</div></div></div><div class="application--container"><form action="/icapitalnetwork/jobs/8244328002?utm_source=github-vansh-ouckah" class="application--form" data-discover="true" id="application-form" method="get"><div class="education--container"><div class="education--form"><div class="select"><div class="select__container"><label class="label select__label select__label--error" for="degree--0" id="degree--0-label">Degree</label></div><p aria-live="polite" class="helper-text helper-text--error" id="degree--0-error">Degree is required.</p></div></div></div></form></div></div></main></body></html>
