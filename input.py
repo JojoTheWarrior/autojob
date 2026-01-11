@@ -205,3 +205,58 @@ def main():
 if __name__ == "__main__":
     main()
 
+# import json
+# from moorcheh_sdk import MoorchehClient
+# from dotenv import load_dotenv
+# import os
+
+# load_dotenv()
+
+# def flatten_and_collect(obj, parent_key="", docs_list=None):
+#     if docs_list is None:
+#         docs_list = []
+        
+#     if isinstance(obj, dict):
+#         for k, v in obj.items():
+#             new_key = f"{parent_key}.{k}" if parent_key else k
+#             flatten_and_collect(v, new_key, docs_list)
+            
+#     elif isinstance(obj, list):
+#         for i, item in enumerate(obj):
+#             new_key = f"{parent_key}.{i}" if parent_key else str(i)
+#             flatten_and_collect(item, new_key, docs_list)
+            
+#     else:
+#         # We reached a leaf value (string, int, bool, etc.)
+#         doc = {
+#             "id": parent_key,   # e.g., "personal_information.legal_name.first_name"
+#             "text": str(obj),   # e.g., "Michael"
+#             "category": "profile_data"
+#         }
+#         docs_list.append(doc)
+        
+#     return docs_list
+
+# # 1. Load the JSON
+# try:
+#     with open("info.json", "r", encoding="utf-8") as r:
+#         data = json.load(r)
+# except FileNotFoundError:
+#     print("Error: info.json not found. Please run input.py first.")
+#     exit()
+
+# # 2. Flatten it into documents
+# documents = flatten_and_collect(data)
+
+# print(f"{documents}")
+
+# api_key = os.getenv("api_key") 
+# # 3. Upload to Moorcheh
+# print("Uploading info to Moorcheh...")
+# client = MoorchehClient(api_key=api_key)
+# status = client.documents.upload(
+#         namespace_name="autojob",
+#         documents=documents
+#     )
+    
+# print(status)
