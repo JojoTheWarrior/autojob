@@ -1,28 +1,21 @@
-import json
-from moorcheh_sdk import MoorchehClient
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+from moorcheh_sdk import MoorchehClient
+import base64
+from openai import OpenAI
+import random
 
 load_dotenv()
 
-profile = ""
-with open("info.json", "r") as r:
-    profile = r.read()
-
-documents = [
-    {
-        "id": "full_user_profile",
-        "text": profile,
-        "category": "json"
-    }
-]
-
-print("Uploading profile to Moorcheh...")
-api_key = os.getenv("api_key") 
-with MoorchehClient(api_key=api_key) as client:
-    status = client.documents.upload(
-        namespace_name="autojob",
-        documents=documents
-    )
+moor_client = MoorchehClient(api_key=os.getenv("api_key"))
+relenvant_context = ""
+search_res = moor_client.similarity_search.query(
+    namespaces=["autojob"],
+    query="first name",
+    top_k=10 # Get top 3 most relevant pieces of data
+)
+search_res.get
+for res in search_res.get('results', []):
+    relenvant_context += res['text'] + "\n"
     
-    print(status)
+print(relenvant_context)
