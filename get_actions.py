@@ -24,7 +24,7 @@ def get_actions(extractions, error="", attempt="", attempt_number=0):
         "7. **Unknown Data:** Use generic placeholder data if personal info is missing.\n"
         "8. **Completion:** Return exactly \"DONE\" if the application is submitted or the workflow is finished.\n\n"
         "### OUTPUT FORMAT:\n"
-        "YOU MUST ONLY OUTPUT SELENIUM CODE!!! No comments, no explaination, no import statements, anything of that sort is an automatic fail."
+        "YOU MUST ONLY OUTPUT SELENIUM CODE!!! No markdown code block formatting, no explaination, no import statements, anything of that sort is an automatic fail."
     )
 
     context_data = f"### CURRENT DOM CONTEXT (Cleaned HTML):\n{extractions}\n"
