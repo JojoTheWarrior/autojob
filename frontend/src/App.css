@@ -400,6 +400,7 @@ body {
     transparent 100%
   );
   position: relative;
+  overflow: hidden; /* Clip the glow animation */
 }
 
 .terminal-divider::after {
@@ -413,6 +414,6 @@ body {
 }
 
 @keyframes divider-sweep {
-  0% { left: -60px; }
-  100% { left: 100%; }
+  0% { left: 0%; transform: translateX(-100%); }
+  100% { left: 100%; transform: translateX(0%); }
 }

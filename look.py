@@ -312,6 +312,16 @@ def startApp(url):
                 print(f"[DEBUG] Keyword to search: '{keywords}'")
 
                 actor_bullshit.append((datetime.now(timezone.utc).isoformat(), past_commands))
+                
+                # Broadcast the new actor line (critic's action request) to terminals
+                try:
+                    manager.broadcast_sync(json.dumps({
+                        "type": "actor_line", 
+                        "ts": datetime.now(timezone.utc).isoformat(), 
+                        "text": past_commands
+                    }))
+                except Exception as e:
+                    print(f"[ERROR] WebSocket actor_line broadcast failed: {e}")
 
                 past_wants.append(past_commands)
                 if len(past_wants) > 10:
@@ -356,6 +366,11 @@ def startApp(url):
 
                 for cmd in cmds.split("\n"):
                     critic_bullshit.append(cmd)
+                    # Broadcast each critic line (selenium command) to terminals
+                    try:
+                        manager.broadcast_sync(json.dumps({"type": "critic_line", "line": cmd}))
+                    except Exception as e:
+                        print(f"[ERROR] WebSocket critic_line broadcast failed: {e}")
 
                 print(f"[DEBUG] Executing Selenium commands...")
                 try:
