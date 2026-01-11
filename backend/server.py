@@ -6,6 +6,7 @@ import csv
 import io
 import json
 
+
 app = FastAPI(title="autojob API")
 
 class Applicant(BaseModel):
@@ -15,7 +16,6 @@ class Applicant(BaseModel):
 	cover_letter: Optional[str] = None
 
 applications: List[dict] = []
-
 
 def apply_to_jobs(applicant_data: dict) -> List[dict]:
 	"""

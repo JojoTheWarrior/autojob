@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #020202;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+/* =========================
+   Boot Terminal (Initial)
+   ========================= */
+
+.boot-terminal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  background: black;
+  color: #00ff66;
+  font-size: 1.4rem;
+  transition: all 0.8s ease;
+  z-index: 2;
+}
+
+.prompt {
+  margin-right: 0.5rem;
+}
+
+.url-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  width: 70%;
+  caret-color: #00ff66;
+}
+
+.caret {
+  width: 10px;
+  height: 1.4rem;
+  background: #00ff66;
+  margin-left: 6px;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* When started, boot terminal shrinks upward */
+.app.started .boot-terminal {
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =========================
+   Split Terminals
+   ========================= */
+
+.split-terminals {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: all 0.9s ease;
+}
+
+/* Reveal when started */
+.app.started .split-terminals {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.terminal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #111;
+}
+
+/* Headers */
+
+.terminal-header {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+/* Bodies */
+
+.terminal-body {
+  flex: 1;
+  padding: 14px;
+  font-size: 1rem;
+  overflow-y: auto;
+}
+
+/* Actor Styling */
+
+.terminal.actor {
+  background: #071a2e;
+  color: #7fd8ff;
+}
+
+.terminal.actor .terminal-header {
+  background: #0b2a4a;
+  color: #ffd54d;
+}
+
+/* Critic Styling */
+
+.terminal.critic {
+  background: #020a04;
+  color: #5cff7a;
+}
+
+.terminal.critic .terminal-header {
+  background: #051507;
+  color: #ff4d4d;
+}

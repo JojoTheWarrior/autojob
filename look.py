@@ -15,9 +15,15 @@ import time
 import re
 import json
 import os
+from datetime import datetime, timezone
 
 from look_actions import want_actions, execute_actions
 from extraction import extract_info, safe_click
+
+app = FastAPI(title="autojob API")
+
+class ApplyRequest(BaseModel):
+    url: str
 
 # initializes selenium driver
 options = Options()
@@ -33,7 +39,9 @@ options.add_argument("--disable-blink-features=AutomationControlled")
 options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option("useAutomationExtension", False)
 
-app = FastAPI()
+driver = ""
+actor_bullshit = []
+critic_bullshit = []
 
 def get_driver(options):
     """Attempts to get a driver for Chrome, then Firefox, then Safari."""
@@ -58,8 +66,6 @@ def get_driver(options):
             print(f"Safari not available: {e}")
 
     raise Exception("No supported browser driver found.")
-
-driver = get_driver(options)
 
 def pad_numbers(x):
     x = str(x)
@@ -142,17 +148,45 @@ def upload_file(input_element, type):
             
         pass
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python dump_html.py <url>")
-        return
+@app.get("/get_actor")
+def get_actor():
+    global actor_bullshit
+    return actor_bullshit
 
-    url = sys.argv[1]
+@app.get("/get_critic")
+def get_critic():
+    global critic_bullshit
+    return critic_bullshit
+
+@app.post("/apply")
+def apply(req: ApplyRequest):
+    url = req.url
+    t = threading.Thread(target=startApp, args=(url,))
+    t.daemon = True
+    t.start()
+
+    # instantly returns something
+    return {
+        "status": "ok",
+        "message": "job started",
+        "url": req.url
+    }
+
+def startApp(url):
+    global driver
+    global actor_bullshit
+    global critic_bullshit
+    driver = get_driver(options)
 
     run_number = 0
 
+    print("HELLO")
+
     with open("./screenshots/run_number.txt", "r") as f:
         run_number = int(f.read())
+
+    with open("./screenshots/run_number.txt", "w") as f:
+            f.write(str(run_number + 1))
 
     os.makedirs(f"./screenshots/run_{pad_numbers(run_number)}")
 
@@ -187,20 +221,19 @@ def main():
                 print(gb)
 
                 past_commands = gb[0]
+                keywords = gb[1]
+
+                actor_bullshit.append((datetime.now(timezone.utc).isoformat(), past_commands))
 
                 past_wants.append(past_commands)
                 if len(past_wants) > 10:
                     past_wants.popleft()
-
-                keywords = gb[1]
 
                 soup = BeautifulSoup(html, "html.parser")
                 pruned_soup = prune_tree_by_keyword(soup, keywords)
 
                 if keywords.lower().strip() == "cookies":
                     pruned_soup = soup
-
-                # print(str(pruned_soup)[0:500])
                 
                 with open(f"./screenshots/run_{pad_numbers(run_number)}/current_{pad_numbers(frame_number)}_soup.txt", "w", encoding="utf-8") as f:
                     f.write(str(pruned_soup))
@@ -208,6 +241,8 @@ def main():
                 cmds = strip_code_fences(execute_actions(str(pruned_soup), past_commands))
 
                 print(cmds)
+
+                critic_bullshit += cmds
 
                 try:
                     exec(cmds)
@@ -222,9 +257,13 @@ def main():
         
     except Exception as e:
         print(e)
-    finally:
-        with open("./screenshots/run_number.txt", "w") as f:
-            f.write(str(run_number + 1))
 
 if __name__ == "__main__":
-    main()
+    import uvicorn
+
+    uvicorn.run(
+        "look:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=False
+    )
