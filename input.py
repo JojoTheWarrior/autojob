@@ -37,7 +37,7 @@ def main():
     print("\n--- Diversity (Voluntary) ---")
     sex = ask("Sex (Male/Female/Prefer not to say)")
     identity = ask("Gender Identity (Man/Woman/Non-binary/etc)")
-    lgbtq = ask("Identify with LGBTQ+?")
+    lgbtq = ask("Identify as LGBTQ+?")
     disability = ask("Any disabilities?")
     race = ask("Race/Ethnicity")
     
@@ -197,7 +197,7 @@ def main():
     }
 
 
-    output_path = "test.json"
+    output_path = "info.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     
@@ -205,3 +205,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
