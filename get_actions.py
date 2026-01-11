@@ -7,39 +7,64 @@ load_dotenv()
 api = os.getenv("api_key")
 client = MoorchehClient(api_key=api)
     
-def get_actions(extractions_json, error="", attempt="", attempt_number=0):
+def get_actions(extractions, error="", attempt="", attempt_number=0):
     print(f"Calling Moorcheh... attempt {attempt_number}")
 
-    prompt = "You are going to use Selenium to help me progress through this job application. \
-    Below, I've sent an extracted JSON with all the important parts of this website. \
-    First and foremost, clear all distractions from the page (like accept cookies, close any other popups) \
-    For every input field that should be filled in on the current page, fill it using the information you know about me. \
-    Any input fields that are already full do not have to be filled again. If you want to refill them, make sure you write over the previous value of that input box \
-    If you don't know a piece of information, fill it with generic placeholder data \
-    If you need to upload a resume or CV, call the function upload_file(selenium element of the <input> (important: not the button, rather the thing that looks like input[type='file']), \"resume\" or \"cv\" (so a string attribute)) \
-    If the resume or CV has already been uploaded, then don't try to upload it again \
-    If there was a previous error and it was something about \"element not clickable\" at a coordinate, the fix is usually not to reposition the screen but rather to perhaps not interact with that element or interact with it differently \
-    Never directly click an element; instead, use the function we have defined safe_click(driver, element) \
-    Send your response as a single string, with newlines separating each Selenium command. \
-    Make sure to add a small 0.5 second sleep between each action.\
-    If you deem that the application is complete and that the window can be closed, just return the string \"DONE\" \
-    Otherwise, send Selenium instructions without any preamble or explanation (just send lines of Selenium) \
-    Also don't include any imports (assume all Selenium things are there) \
-    Here is the summary of the website:\
-    " + extractions_json
+    system_instruction = (
+        "You are an expert Selenium Automation Engineer specializing in autonomous job applications. "
+        "Your goal is to navigate web forms, handle dynamic DOM elements, and submit applications robustly."
+        "Please take your time and think through this problem step by step. \n\n"
+        "### OPERATIONAL RULES:\n"
+        "1. **Safety First:** Never click directly. Use `safe_click(driver, element)`.\n"
+        "2. **State Management:** If an input is pre-filled, overwrite it only if necessary. If a file is uploaded, do not re-upload.\n"
+        "3. **Distraction Removal:** Prioritize closing cookie banners or modals before interacting with form fields.\n"
+        "4. **File Uploads:** Use `upload_file(element, file_type)` on `input[type='file']` elements specifically.\n"
+        "5. **Error Handling:** If an 'element not clickable' error occurred previously, retry by interacting with the parent container or using JavaScript execution.\n"
+        "6. **Pacing:** Add `time.sleep(0.5)` between every distinct action.\n"
+        "7. **Unknown Data:** Use generic placeholder data if personal info is missing.\n"
+        "8. **Completion:** Return exactly \"DONE\" if the application is submitted or the workflow is finished.\n\n"
+        "### OUTPUT FORMAT:\n"
+        "YOU MUST ONLY OUTPUT SELENIUM CODE!!! No comments, no explaination, no import statements, anything of that sort is an automatic fail."
+    )
 
-    if error != "":
-        prompt += "\n\nAdditionally, here's the error that this page threw last time. \
-        See if you can fix it for next time:\n" + error
-    if attempt != "":
-        prompt += f"\n\nAnd the instructions you tried running last time are sent after this. \
-            If you tried to send many instructions at once, you might need to slow down. \
-            You've already been on this page {attempt_number} times. If this number is >= 1, consider halving the number of instructions you're sending at once. \
-            If you've been on this page many, many times, try just sending one instruction at a time to navigate slowly and not rush any interactions. \n" + attempt 
-        
+    context_data = f"### CURRENT DOM CONTEXT (Cleaned HTML):\n{extractions}\n"
+
+    error_context = ""
+    if error:
+        error_context = (
+            f"\n### PREVIOUS ERROR:\n{error}\n"
+            "CRITICAL: The previous attempt failed. Analyze the error above. "
+            "If the error was 'element not clickable', do not repeat the exact same selector/interaction. "
+            "Try scrolling the element into view or selecting a different unique attribute.\n"
+        )
+
+    retry_context = ""
+    if attempt:
+        # Dynamic pacing adjustment based on failure count
+        pacing_instruction = "Maintain normal execution speed."
+        if attempt_number >= 1:
+            pacing_instruction = "REDUCE BATCH SIZE: Send fewer instructions to isolate the failure."
+        if attempt_number >= 3:
+            pacing_instruction = "SINGLE STEP MODE: Send only ONE instruction to ensure stability."
+
+        retry_context = (
+            f"\n### PREVIOUS ATTEMPT (Failed):\n{attempt}\n"
+            f"### RETRY STRATEGY ({attempt_number} failures):\n"
+            f"{pacing_instruction}\n"
+        )
+
+    # Combine components
+    full_prompt = (
+        f"{system_instruction}\n"
+        f"{context_data}\n"
+        f"{error_context}\n"
+        f"{retry_context}\n"
+        "### GENERATE RESPONSE:"
+    )
+
     response = client.answer.generate(
         namespace="autojob", 
-        query=prompt,
+        query=full_prompt,
         ai_model="anthropic.claude-opus-4-5-20251101-v1:0"
     )
     return response["answer"]

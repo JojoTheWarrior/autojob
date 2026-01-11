@@ -16,7 +16,17 @@ import json
 import os
 
 def extract_info(html):
-    return [html]
+    soup = BeautifulSoup(html, "html.parser")
+
+    useless_tags = [
+        "script", "style", "meta", "link", "noscript", 
+        "header", "footer", "nav", "svg", "iframe", "object", "embed"
+    ]
+
+    for tag in soup(useless_tags):
+        tag.decompose()
+
+    return [soup.prettify()]
 
 def extract_info_legacy(html):
     soup = BeautifulSoup(html, "html.parser")
