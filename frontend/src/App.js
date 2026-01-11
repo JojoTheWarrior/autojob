@@ -35,10 +35,10 @@ export default function App() {
 
   // Running state
   const [actorDisplay, setActorDisplay] = useState([
-    { ts: "", text: ">> Awaiting uplink... establishing signal...\n" },
+    { ts: "", text: ">> Critic module standby...\n" },
   ]);
   const [criticDisplay, setCriticDisplay] = useState([
-    { text: ">> Critic module standby...\n" },
+    { text: ">> Awaiting uplink... establishing signal...\n" },
   ]);
   const [isActorTyping, setIsActorTyping] = useState(false);
   const [isCriticTyping, setIsCriticTyping] = useState(false);
