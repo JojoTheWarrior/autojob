@@ -1,7 +1,9 @@
-# visa put country and visa status
-# sponsorship put if you need sponsorship now or in the future
 import json
+from moorcheh_sdk import MoorchehClient
+from dotenv import load_dotenv
 import os
+
+
 
 def ask(prompt):
     return input(f"{prompt}: ").strip()
@@ -196,12 +198,9 @@ def main():
         }
     }
 
-
-    output_path = "info.json"
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
-    
-    print(f"\nSuccessfully saved to {output_path}")
+    profile = json.dumps(data, indent=2)
+    with open("info.json", "w") as f:
+        f.write(profile)
 
 if __name__ == "__main__":
     main()
