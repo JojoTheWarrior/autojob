@@ -34,8 +34,10 @@ def get_actions(extractions_json, error="", attempt="", attempt_number=0):
     if attempt != "":
         prompt += f"\n\nAnd the instructions you tried running last time are sent after this. \
             If you tried to send many instructions at once, you might need to slow down. \
-            You've already been on this page {attempt_number} times. If this number is like 5+, consider halving the number of instructions you're sending at once. \
+            You've already been on this page {attempt_number} times. If this number is >= 1, consider halving the number of instructions you're sending at once. \
             If you've been on this page many, many times, try just sending one instruction at a time to navigate slowly and not rush any interactions. \n" + attempt 
+
+    prompt += "And make sure to only send either pure code or the single word DONE"
 
     response = client.answer.generate(
         namespace="autojob", 
